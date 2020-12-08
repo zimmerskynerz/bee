@@ -32,4 +32,5 @@
     <link rel="stylesheet" type="text/css" href="<?= base_url('assets/') ?>css/forms/theme-checkbox-radio.css">
     <link rel="stylesheet" type="text/css" href="<?= base_url('assets/') ?>plugins/table/datatable/dt-global_style.css">
     <link rel="stylesheet" type="text/css" href="<?= base_url('assets/') ?>plugins/table/datatable/custom_dt_custom.css">
+    <link href="<?= base_url('assets/') ?>css/apps/mailing-chat.css" rel="stylesheet" type="text/css" />
 </head>

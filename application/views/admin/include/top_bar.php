@@ -45,18 +45,29 @@
                 </a>
                 <ul class="collapse submenu list-unstyled" id="app" data-parent="#topAccordion">
                     <li>
-                        <a href="apps_chat.html"> Admin </a>
+                        <a href="<?= base_url('admin/pengguna/admin') ?>"> Admin </a>
                     </li>
                     <li>
-                        <a href="apps_mailbox.html"> Validasi</a>
+                        <a href="<?= base_url('admin/pengguna/validasi') ?>"> Validasi</a>
                     </li>
                     <li>
-                        <a href="apps_todoList.html"> Konsumen </a>
+                        <a href="<?= base_url('admin/pengguna/konsumen') ?>"> Konsumen </a>
                     </li>
                 </ul>
             </li>
+            <li class="menu single-menu <?php echo $this->uri->segment(2) == 'produk' ? 'active' : '' ?>">
+                <a href="<?= base_url('admin/produk') ?>" aria-expanded="<?php echo $this->uri->segment(2) == 'beranda' ? 'true' : 'false' ?>" class="dropdown-toggle">
+                    <div class="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                        </svg>
+                        <span> Produk </span>
+                    </div>
+                </a>
+            </li>
             <li class="menu single-menu <?php echo $this->uri->segment(2) == 'chat' ? 'active' : '' ?>">
-                <a href="<?= base_url('admin/dashboard') ?>" aria-expanded="<?php echo $this->uri->segment(2) == 'beranda' ? 'true' : 'false' ?>" class="dropdown-toggle">
+                <a href="<?= base_url('admin/chat/inbox') ?>" aria-expanded="<?php echo $this->uri->segment(2) == 'beranda' ? 'true' : 'false' ?>" class="dropdown-toggle">
                     <div class="">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home">
                             <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
@@ -82,16 +93,16 @@
                 </a>
                 <ul class="collapse submenu list-unstyled" id="components" data-parent="#topAccordion">
                     <li>
-                        <a href="component_tabs.html"> Baru </a>
+                        <a href="<?= base_url('admin/transaksi/baru') ?>"> Baru </a>
                     </li>
                     <li>
-                        <a href="component_accordion.html"> Pembayaran </a>
+                        <a href="<?= base_url('admin/transaksi/pembayaran') ?>"> Pembayaran </a>
                     </li>
                     <li>
-                        <a href="component_modal.html"> Proses </a>
+                        <a href="<?= base_url('admin/transaksi/proses') ?>"> Proses </a>
                     </li>
                     <li>
-                        <a href="component_cards.html"> Selesai </a>
+                        <a href="<?= base_url('admin/transaksi/selesai') ?>"> Selesai </a>
                     </li>
                 </ul>
             </li>
@@ -109,13 +120,13 @@
                 </a>
                 <ul class="collapse submenu list-unstyled" id="uiKit" data-parent="#topAccordion">
                     <li>
-                        <a href="ui_alerts.html"> Laporan </a>
+                        <a href="<?= base_url('admin/akun/laporan') ?>"> Laporan </a>
                     </li>
                     <li>
-                        <a href="ui_avatar.html"> Profile </a>
+                        <a href="<?= base_url('admin/akun/profile') ?>"> Profile </a>
                     </li>
                     <li>
-                        <a href="ui_badges.html"> Logout </a>
+                        <a href="<?= base_url('admin/logout') ?>"> Logout </a>
                     </li>
                 </ul>
             </li>

@@ -13,6 +13,30 @@ class ControllerDashboard extends CI_Controller
         );
         $this->load->view('admin/include/index', $data);
     }
+    public function laporan()
+    {
+        $data = array(
+            'folder'                            => 'beranda',
+            'halaman'                           => 'laporan'
+        );
+        $this->load->view('admin/include/index', $data);
+    }
+    public function profile()
+    {
+        $data = array(
+            'folder'                            => 'beranda',
+            'halaman'                           => 'profile'
+        );
+        $this->load->view('admin/include/index', $data);
+    }
+    public function logout()
+    {
+        $data = array(
+            'folder'                            => 'beranda',
+            'halaman'                           => 'index'
+        );
+        $this->load->view('admin/include/index', $data);
+    }
 }
         
     /* End of file  ControllerDashboard.php */

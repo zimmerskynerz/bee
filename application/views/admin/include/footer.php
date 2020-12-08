@@ -4,6 +4,8 @@
     <script src="<?= base_url('assets/') ?>bootstrap/js/bootstrap.min.js"></script>
     <script src="<?= base_url('assets/') ?>plugins/perfect-scrollbar/perfect-scrollbar.min.js"></script>
     <script src="<?= base_url('assets/') ?>js/app.js"></script>
+    <script src="<?= base_url('assets/') ?>js/apps/mailbox-chat.js"></script>
+
     <script>
         $(document).ready(function() {
             App.init();

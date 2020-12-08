@@ -18,3 +18,28 @@ $route['admin/pengguna/admin']                                  = 'admin/Control
 $route['admin/pengguna/validasi']                               = 'admin/ControllerPengguna/validasi';
 $route['admin/pengguna/konsumen']                               = 'admin/ControllerPengguna/konsumen';
 $route['admin/pengguna/crudpengguna']                           = 'admin/ControllerPengguna/crudpengguna';
+// Menu Produk
+$route['admin/produk']                                          = 'admin/ControllerProduk/index';
+$route['admin/produk/crudproduk']                               = 'admin/ControllerProduk/crudproduk';
+// Menu Pesan Chat &Nego
+$route['admin/chat/inbox']                                      = 'admin/ControllerChat/index';
+$route['admin/chat/inbox/(:any)']                               = 'admin/ControllerChat/pesan/$1';
+$route['admin/chat/kirimcrud']                                  = 'admin/ControllerChat/kirim_pesan';
+// Menu Transaksi
+$route['admin/transaksi/baru']                                  = 'admin/ControllerTransaksi/baru';
+$route['admin/transaksi/pembayaran']                            = 'admin/ControllerTransaksi/pembayaran';
+$route['admin/transaksi/proses']                                = 'admin/ControllerTransaksi/proses';
+$route['admin/transaksi/selesai']                               = 'admin/ControllerTransaksi/selesai';
+$route['admin/transaksi/crudtransaksi']                         = 'admin/ControllerTransaksi/crudtransaksi';
+// Menu Akun
+$route['admin/akun/laporan']                                    = 'admin/ControllerDashboard/Laporan';
+$route['admin/akun/profile']                                    = 'admin/ControllerDashboard/profile';
+$route['admin/logout']                                          = 'admin/ControllerDashboard/logout';
+
+// Halaman Pemilik
+// Dashboard Laporan Penjualan
+$route['pemilik/laporan']                                       = 'pemilik/ControllerDashboard/index';
+$route['pemilik/profile']                                       = 'pemilik/ControllerDashboard/profile';
+$route['pemilik/crudpemilik']                                   = 'pemilik/ControllerDashboard/crudpemilik';
+
+// Halaman Konsumen
