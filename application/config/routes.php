@@ -7,6 +7,10 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 // Halaman Admin
+// Halaman Login Admin
+$route['admin/login']                                           = 'admin/ControllerAuth/login';
+$route['admin/cek_login']                                           = 'admin/ControllerAuth/login';
+$route['admin/logout']                                          = 'admin/ControllerAuth/logout';
 // Menu Dashboard
 $route['admin/']                                                = 'admin/ControllerDashboard/index';
 $route['admin/dashboard']                                       = 'admin/ControllerDashboard/index';

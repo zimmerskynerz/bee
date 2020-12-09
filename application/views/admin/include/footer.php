@@ -5,7 +5,10 @@
     <script src="<?= base_url('assets/') ?>plugins/perfect-scrollbar/perfect-scrollbar.min.js"></script>
     <script src="<?= base_url('assets/') ?>js/app.js"></script>
     <script src="<?= base_url('assets/') ?>js/apps/mailbox-chat.js"></script>
+    <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
 
+    <!-- END GLOBAL MANDATORY SCRIPTS -->
+    <script src="<?= base_url('assets/') ?>js/authentication/form-2.js"></script>
     <script>
         $(document).ready(function() {
             App.init();
