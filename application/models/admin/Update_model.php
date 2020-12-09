@@ -2,81 +2,23 @@
 
 class Update_model extends CI_Model
 {
-    function terima_rekomendasi()
+    function reset_pass()
     {
-        $status_pengjauan = $this->input->post('status_pengjauan');
-        if ($status_pengjauan == 1) :
-            $alasan = 'Berkas Diterima';
-            $status = 'TERIMA';
-            $status_rekomendasi = 'KABID';
-        else :
-            $alasan = $this->input->post('alasan');
-            $status = 'TOLAK';
-            $status_rekomendasi = 'TOLAK';
-        endif;
-        $id_rekomendasi = htmlentities($this->input->post('id_rekomendasi'));
         $data = array(
-            'status_rekomendasi' => $status_rekomendasi
+            'password' => 'ADMIN123abc'
         );
-        $this->db->where('id_rekomendasi', $id_rekomendasi);
-        $this->db->update('tbl_rekomendasi', $data);
-        $data_hsitory = array(
-            'id_history' => '',
-            'id_user' => $this->input->post('id_user'),
-            'id_rekomendasi' => $id_rekomendasi,
-            'tgl_validasi' => date('Y-m-d'),
-            'status_pengajuan' => $status,
-            'ket_lain' => $alasan
-        );
-        $this->db->insert('tbl_history', $data_hsitory);
+        $this->db->where('id_admin', $this->input->post('id_admin'));
+        $this->db->update('tbl_admin', $data);
     }
-    function terima_rekomendasi_perpanjang()
+    function ubah_admin()
     {
-        $status_pengjauan = $this->input->post('status_pengjauan');
-        if ($status_pengjauan == 1) :
-            $alasan = 'Berkas Diterima';
-            $status = 'TERIMA';
-            $status_rekomendasi = 'P_KABID';
-        else :
-            $alasan = $this->input->post('alasan');
-            $status = 'TOLAK';
-            $status_rekomendasi = 'AKTIF';
-        endif;
-        $id_rekomendasi = htmlentities($this->input->post('id_rekomendasi'));
         $data = array(
-            'status_rekomendasi' => $status_rekomendasi
+            'email'                 => $this->input->post('email'),
+            'nm_lengkap'            => $this->input->post('nm_lengkap'),
+            'no_hp'                 => $this->input->post('no_hp'),
+            'alamat'                => $this->input->post('alamat')
         );
-        $this->db->where('id_rekomendasi', $id_rekomendasi);
-        $this->db->update('tbl_rekomendasi', $data);
-        $data_hsitory = array(
-            'id_history' => '',
-            'id_user' => $this->input->post('id_user'),
-            'id_rekomendasi' => $id_rekomendasi,
-            'tgl_validasi' => date('Y-m-d'),
-            'status_pengajuan' => $status,
-            'ket_lain' => $alasan
-        );
-        $this->db->insert('tbl_history', $data_hsitory);
-    }
-    function validasiSip()
-    {
-        $status_validasi = htmlentities($this->input->post('status_validasi'));
-        if ($status_validasi == 'P_KASI') :
-            // echo 'P_KASI';
-            $id_sip = htmlentities($this->input->post('id_sip'));
-            $data = array(
-                'status_sip' => 'P_KABID'
-            );
-            $this->db->where('id_sip', $id_sip);
-            $this->db->update('tbl_sip', $data);
-        else :
-            // echo 'KASI';
-            $id_sip = htmlentities($this->input->post('id_sip'));
-            $data = array(
-                'status_sip' => 'KABID'
-            );
-            $this->db->where('id_sip', $id_sip);
-            $this->db->update('tbl_sip', $data);
-        endif;
+        $this->db->where('id_admin', $this->input->post('id_admin'));
+        $this->db->update('tbl_admin', $data);
     }
 }

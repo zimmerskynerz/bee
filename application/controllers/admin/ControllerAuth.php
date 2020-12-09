@@ -7,13 +7,21 @@ class ControllerAuth extends CI_Controller
 
     public function login()
     {
-        $this->load->view('admin/login/index');
+        $data_login = $this->db->get_where('tbl_admin', ['email' => $this->session->userdata('email')])->row_array();
+        if ($data_login > 0) :
+            redirect('admin');
+        else :
+            $this->load->view('admin/login/index');
+        endif;
     }
     public function cek_login()
     {
         $password = md5($this->input->post('password'));
         $email    = $this->input->post('email');
-        $cek_login = $this->db->select('tbl_admin', ['email' => $email, 'password' => $password, 'status' => 'AKTIF'])->row_array();
+        // echo "<pre>";
+        // var_dump($password);
+        // die;
+        $cek_login = $this->db->get_where('tbl_admin', ['email' => $email, 'password' => $password, 'status' => 'AKTIF'])->row_array();
         if ($cek_login > 0) :
             $data_login = [
                 'id_admin' => $cek_login['id_admin'],
@@ -23,20 +31,22 @@ class ControllerAuth extends CI_Controller
                 'alamat' => $cek_login['alamat'],
                 'tgl_gabung' => $cek_login['tgl_gabung']
             ];
-            if ($data['query_login']['level'] == 'admin') {
+            if ($cek_login['status_pegawai'] == 'ADMIN') {
                 $this->session->set_userdata($data_login);
                 redirect('admin');
-            } elseif ($data['query_login']['level'] == 'guru') {
-                $this->session->set_userdata($data_login);
-                redirect('guru');
             } else {
                 $this->session->set_userdata($data_login);
-                redirect('siswa');
+                redirect('pemilik');
             }
             die;
         else :
             redirect('admin/login');
         endif;
+    }
+    public function logout()
+    {
+        $this->session->sess_destroy();
+        redirect('admin/login');
     }
 }
         

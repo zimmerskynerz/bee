@@ -25,7 +25,6 @@
             <div class="form-form-wrap">
                 <div class="form-container">
                     <div class="form-content">
-
                         <h1 class="">LOGIN</h1>
                         <p class="">SELAMAT DATANG ADMIN DAN PEMILIK</p>
                         <?php echo form_open_multipart('admin/cek_login'); ?>
@@ -57,7 +56,6 @@
                             </div>
                         </div>
                         <?php echo form_close(); ?>
-
                     </div>
                 </div>
             </div>

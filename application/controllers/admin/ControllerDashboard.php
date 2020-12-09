@@ -7,35 +7,42 @@ class ControllerDashboard extends CI_Controller
 
     public function index()
     {
-        $data = array(
-            'folder'                            => 'beranda',
-            'halaman'                           => 'index'
-        );
-        $this->load->view('admin/include/index', $data);
+        $data_login = $this->db->get_where('tbl_admin', ['email' => $this->session->userdata('email')])->row_array();
+        if ($data_login > 0) :
+            $data = array(
+                'folder'                            => 'beranda',
+                'halaman'                           => 'index'
+            );
+            $this->load->view('admin/include/index', $data);
+        else :
+            redirect('admin/logout');
+        endif;
     }
     public function laporan()
     {
-        $data = array(
-            'folder'                            => 'beranda',
-            'halaman'                           => 'laporan'
-        );
-        $this->load->view('admin/include/index', $data);
+        $data_login = $this->db->get_where('tbl_admin', ['email' => $this->session->userdata('email')])->row_array();
+        if ($data_login > 0) :
+            $data = array(
+                'folder'                            => 'beranda',
+                'halaman'                           => 'laporan'
+            );
+            $this->load->view('admin/include/index', $data);
+        else :
+            redirect('admin/logout');
+        endif;
     }
     public function profile()
     {
-        $data = array(
-            'folder'                            => 'beranda',
-            'halaman'                           => 'profile'
-        );
-        $this->load->view('admin/include/index', $data);
-    }
-    public function logout()
-    {
-        $data = array(
-            'folder'                            => 'beranda',
-            'halaman'                           => 'index'
-        );
-        $this->load->view('admin/include/index', $data);
+        $data_login = $this->db->get_where('tbl_admin', ['email' => $this->session->userdata('email')])->row_array();
+        if ($data_login > 0) :
+            $data = array(
+                'folder'                            => 'beranda',
+                'halaman'                           => 'profile'
+            );
+            $this->load->view('admin/include/index', $data);
+        else :
+            redirect('admin/logout');
+        endif;
     }
 }
         
