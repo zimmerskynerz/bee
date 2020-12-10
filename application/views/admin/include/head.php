@@ -37,4 +37,34 @@
     <link href="<?= base_url('assets/') ?>css/authentication/form-2.css" rel="stylesheet" type="text/css" />
     <!-- END GLOBAL MANDATORY STYLES -->
     <link rel="stylesheet" type="text/css" href="<?= base_url('assets/') ?>css/forms/switches.css">
+    <style>
+        .sidebar.toggled .nav-item .collapse {
+            position: relative;
+            padding-left: 1rem;
+            left: 0;
+            z-index: 1;
+            top: 0;
+        }
+
+        .sidebar.toggled {
+            width: 60vw !important;
+            transition: all .3s ease-in-out;
+            -webkit-transition: all .3s ease-in-out;
+        }
+    </style>
+    <style>
+        .responsive img {
+            max-width: 50%;
+            align-content: center;
+            /*width:100%;*/
+            height: auto;
+        }
+    </style>
+    <style>
+        .avatar2 {
+            vertical-align: top;
+            width: 126px;
+            margin-right: 6px;
+        }
+    </style>
 </head>

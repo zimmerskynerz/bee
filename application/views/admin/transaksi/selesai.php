@@ -6,7 +6,7 @@
                     <div class="widget-header">
                         <div class="row">
                             <div class="col-xl-12 col-md-12 col-sm-12 col-12">
-                                <h4>Kelola Produk</h4>
+                                <h4>Transaksi Selesai</h4>
                             </div>
                         </div>
                     </div>
@@ -16,56 +16,33 @@
                                 <thead>
                                     <tr>
                                         <th class="text-center">No</th>
+                                        <th class="text-center">Kode Transaksi</th>
+                                        <th class="text-center">Tanggal Bayar</th>
+                                        <th class="text-center">Nama Konsumen</th>
                                         <th class="text-center">Nama Produk</th>
-                                        <th class="text-center">Gambar Produk</th>
-                                        <th class="text-center">Detail Produk</th>
-                                        <th class="text-center">Harga Produk</th>
-                                        <th class="text-center">Aksi</th>
+                                        <th class="text-center">Foto Bukti</th>
+                                        <th class="text-center">Jumlah Produk</th>
+                                        <th class="text-center">Total Harga</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td class="text-center">1</td>
-                                        <td>Donna</td>
-                                        <td>Rogers</td>
-                                        <td>donna@yahoo.com</td>
-                                        <td>555-555-5555</td>
-                                        <!-- <td class="text-center"><span class="shadow-none badge badge-primary">Approved</span></td> -->
-                                        <td class="text-center">
-                                            <ul class="table-controls">
-                                                <li>
-                                                    <a href="javascript:void(0);" class="bs-tooltip" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-2 p-1 br-6 mb-1">
-                                                            <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path>
-                                                        </svg>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                </li>
-                                            </ul>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-center">1</td>
-                                        <td>Donna</td>
-                                        <td>Rogers</td>
-                                        <td>donna@yahoo.com</td>
-                                        <td>555-555-5555</td>
-                                        <!-- <td class="text-center"><span class="shadow-none badge badge-primary">Approved</span></td> -->
-                                        <td class="text-center">
-                                            <ul class="table-controls">
-                                                <li>
-                                                    <a href="javascript:void(0);" class="bs-tooltip" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-2 p-1 br-6 mb-1">
-                                                            <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path>
-                                                        </svg>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                </li>
-                                            </ul>
-                                        </td>
-                                    </tr>
+                                    <?php $no = 1; ?>
+                                    <?php foreach ($data_selesai as $Data_selesai) : ?>
+                                        <tr>
+                                            <td class="text-center"><?= $no ?></td>
+                                            <td style="text-align: center;"><?= date('Ymd', strtotime($Data_selesai->tgl_transaksi)) ?><?= $Data_selesai->id_transaksi ?></td>
+                                            <td><?= date('d F Y', strtotime($Data_selesai->tgl_bayar)) ?></td>
+                                            <td><?= $Data_selesai->nm_konsumen ?></td>
+                                            <td><?= $Data_selesai->nm_produk ?></td>
+                                            <td class="text-center">
+                                                <img src="<?= base_url('assets/') ?>bayar/<?= $Data_selesai->foto_bayar ?>" class="avatar2 zoom">
+                                            </td>
+                                            <td class="text-center"><?= $Data_selesai->jml_barang ?></td>
+                                            <td class="text-right"><?= $Data_selesai->total_harga ?>,-</td>
+                                            <!-- <td class="text-center"><span class="shadow-none badge badge-primary">Approved</span></td> -->
+                                        </tr>
+                                        <?php $no++ ?>
+                                    <?php endforeach; ?>
                                 </tbody>
                             </table>
                         </div>

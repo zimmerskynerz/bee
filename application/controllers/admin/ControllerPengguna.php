@@ -74,6 +74,10 @@ class ControllerPengguna extends CI_Controller
             $this->update_model->ubah_admin();
             redirect('admin/pengguna/admin');
         endif;
+        if (isset($_POST['validasi_konsumen'])) :
+            $this->update_model->validasi_konsumen();
+            redirect('admin/pengguna/konsumen');
+        endif;
     }
 }
         

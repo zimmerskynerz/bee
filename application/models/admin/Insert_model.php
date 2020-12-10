@@ -19,7 +19,6 @@ class Insert_model extends CI_Model
     }
     function tambah_produk()
     {
-        $tgl_ini                 = date('Y-m-d H:i:s');
         $config['upload_path']   = './assets/produk';
         $config['allowed_types'] = 'jpeg|jpg|png|gif';
         $config['encrypt_name']  = true;

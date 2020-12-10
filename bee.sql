@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 09, 2020 at 08:58 PM
--- Server version: 10.4.17-MariaDB
--- PHP Version: 7.3.25
+-- Waktu pembuatan: 10 Des 2020 pada 08.42
+-- Versi server: 10.4.14-MariaDB
+-- Versi PHP: 7.3.22
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_admin`
+-- Struktur dari tabel `tbl_admin`
 --
 
 CREATE TABLE `tbl_admin` (
@@ -40,7 +40,7 @@ CREATE TABLE `tbl_admin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_admin`
+-- Dumping data untuk tabel `tbl_admin`
 --
 
 INSERT INTO `tbl_admin` (`id_admin`, `email`, `password`, `nm_lengkap`, `no_hp`, `alamat`, `tgl_gabung`, `status`, `status_pegawai`) VALUES
@@ -50,7 +50,7 @@ INSERT INTO `tbl_admin` (`id_admin`, `email`, `password`, `nm_lengkap`, `no_hp`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_chat`
+-- Struktur dari tabel `tbl_chat`
 --
 
 CREATE TABLE `tbl_chat` (
@@ -65,7 +65,7 @@ CREATE TABLE `tbl_chat` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_konsumen`
+-- Struktur dari tabel `tbl_konsumen`
 --
 
 CREATE TABLE `tbl_konsumen` (
@@ -82,10 +82,17 @@ CREATE TABLE `tbl_konsumen` (
   `ket_lain` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data untuk tabel `tbl_konsumen`
+--
+
+INSERT INTO `tbl_konsumen` (`id_konsumen`, `email`, `password`, `nm_konsumen`, `no_hp`, `alamat`, `tgl_lahir`, `foto`, `status_validasi`, `tgl_daftar`, `ket_lain`) VALUES
+(1, 'lovanio@gmail.com', '9d127228d15be02d35d734084e571731', 'LOVAN', '0895411547434', 'KUDUS', '2020-12-10', 'default.png', 'AKTIF', '2020-12-10', NULL);
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_produk`
+-- Struktur dari tabel `tbl_produk`
 --
 
 CREATE TABLE `tbl_produk` (
@@ -98,44 +105,52 @@ CREATE TABLE `tbl_produk` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_produk`
+-- Dumping data untuk tabel `tbl_produk`
 --
 
 INSERT INTO `tbl_produk` (`id_produk`, `nm_produk`, `foto_produk`, `detail_produk`, `harga_produk`, `status_produk`) VALUES
-(1, 'Logo', '3adad2482757069ae8d0a1fe660f76c3.jpg', 'Apa saja', 3000000, 'ADA');
+(1, 'Logo', '358bede1ce0d9804da041363e363fd18.png', 'Apa saja', 3000000, 'ADA');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_traksaksi`
+-- Struktur dari tabel `tbl_traksaksi`
 --
 
 CREATE TABLE `tbl_traksaksi` (
   `id_transaksi` int(9) NOT NULL,
   `tgl_transaksi` date NOT NULL,
   `tgl_bayar` date DEFAULT NULL,
+  `tgl_selesai` date DEFAULT NULL,
   `id_konsumen` int(9) NOT NULL,
   `id_produk` int(9) NOT NULL,
-  `foto_bayar` text NOT NULL,
-  `status_transaksi` enum('KONFIRMASI','BAYAR','PROSES','SELESAI') NOT NULL,
+  `foto_bayar` text DEFAULT NULL,
+  `status_transaksi` enum('KONFIRMASI','BAYAR','PROSES','SELESAI','TOLAK') NOT NULL,
   `ket_lain` text DEFAULT NULL,
-  `ongkir` int(9) DEFAULT NULL,
+  `jml_barang` int(9) DEFAULT NULL,
   `total_harga` int(9) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `tbl_traksaksi`
+--
+
+INSERT INTO `tbl_traksaksi` (`id_transaksi`, `tgl_transaksi`, `tgl_bayar`, `tgl_selesai`, `id_konsumen`, `id_produk`, `foto_bayar`, `status_transaksi`, `ket_lain`, `jml_barang`, `total_harga`) VALUES
+(2, '2020-12-10', '2020-12-10', '2020-12-11', 1, 1, '1527432881_27-05-2018_photo6077615961109801020.jpg', 'SELESAI', 'BARANG ANDA SEDANG DIKIRIM. NO RESI : fds322323', 2, 6000000);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `tbl_admin`
+-- Indeks untuk tabel `tbl_admin`
 --
 ALTER TABLE `tbl_admin`
   ADD PRIMARY KEY (`id_admin`),
   ADD UNIQUE KEY `email` (`email`);
 
 --
--- Indexes for table `tbl_chat`
+-- Indeks untuk tabel `tbl_chat`
 --
 ALTER TABLE `tbl_chat`
   ADD PRIMARY KEY (`id_chat`),
@@ -143,20 +158,20 @@ ALTER TABLE `tbl_chat`
   ADD KEY `use_id_admin01` (`id_admin`);
 
 --
--- Indexes for table `tbl_konsumen`
+-- Indeks untuk tabel `tbl_konsumen`
 --
 ALTER TABLE `tbl_konsumen`
   ADD PRIMARY KEY (`id_konsumen`),
   ADD UNIQUE KEY `email` (`email`);
 
 --
--- Indexes for table `tbl_produk`
+-- Indeks untuk tabel `tbl_produk`
 --
 ALTER TABLE `tbl_produk`
   ADD PRIMARY KEY (`id_produk`);
 
 --
--- Indexes for table `tbl_traksaksi`
+-- Indeks untuk tabel `tbl_traksaksi`
 --
 ALTER TABLE `tbl_traksaksi`
   ADD PRIMARY KEY (`id_transaksi`),
@@ -164,52 +179,52 @@ ALTER TABLE `tbl_traksaksi`
   ADD KEY `use_produk` (`id_produk`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `tbl_admin`
+-- AUTO_INCREMENT untuk tabel `tbl_admin`
 --
 ALTER TABLE `tbl_admin`
   MODIFY `id_admin` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `tbl_chat`
+-- AUTO_INCREMENT untuk tabel `tbl_chat`
 --
 ALTER TABLE `tbl_chat`
   MODIFY `id_chat` int(9) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tbl_konsumen`
+-- AUTO_INCREMENT untuk tabel `tbl_konsumen`
 --
 ALTER TABLE `tbl_konsumen`
-  MODIFY `id_konsumen` int(9) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_konsumen` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `tbl_produk`
+-- AUTO_INCREMENT untuk tabel `tbl_produk`
 --
 ALTER TABLE `tbl_produk`
   MODIFY `id_produk` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `tbl_traksaksi`
+-- AUTO_INCREMENT untuk tabel `tbl_traksaksi`
 --
 ALTER TABLE `tbl_traksaksi`
-  MODIFY `id_transaksi` int(9) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_transaksi` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- Constraints for dumped tables
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `tbl_chat`
+-- Ketidakleluasaan untuk tabel `tbl_chat`
 --
 ALTER TABLE `tbl_chat`
   ADD CONSTRAINT `use_id_admin01` FOREIGN KEY (`id_admin`) REFERENCES `tbl_admin` (`id_admin`),
   ADD CONSTRAINT `use_id_konsumen01` FOREIGN KEY (`id_konsumen`) REFERENCES `tbl_konsumen` (`id_konsumen`);
 
 --
--- Constraints for table `tbl_traksaksi`
+-- Ketidakleluasaan untuk tabel `tbl_traksaksi`
 --
 ALTER TABLE `tbl_traksaksi`
   ADD CONSTRAINT `use_konsumen1` FOREIGN KEY (`id_konsumen`) REFERENCES `tbl_konsumen` (`id_konsumen`),

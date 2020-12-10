@@ -56,3 +56,60 @@
         $(".modal-body#detail_body #alamat").val(alamat);
     })
 </script>
+<div class="modal fade" id="validasi_detail" tabindex="-1" role="dialog" aria-labelledby="validasi_detailTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="validasi_detailTitle">
+                    Validasi Konsumen!
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="detail_body">
+                <?php echo form_open_multipart('admin/pengguna/crudpengguna'); ?>
+                <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>" style="display: none">
+                <div class="form-group">
+                    <label for="">Nama Lengkap</label>
+                    <input type="text" class="form-control" id="nm_konsumen" name="nm_konsumen" placeholder="Nama Lengkap" required readonly>
+                    <input type="number" hidden class="form-control" id="id_konsumen" name="id_konsumen" placeholder="Nama Lengkap" required readonly>
+                </div>
+                <div class="form-group">
+                    <label for="">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Masukkan Email" required readonly>
+                </div>
+                <div class="form-group">
+                    <label for="">No HP</label>
+                    <input type="number" class="form-control" id="no_hp" name="no_hp" placeholder="Nomor HP" required readonly>
+                </div>
+                <div class="form-group">
+                    <label for="">Alamat</label>
+                    <textarea type="text" class="form-control" id="alamat" name="alamat" placeholder="Alamat Admin" required readonly></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-primary" data-dismiss="modal">
+                    Close
+                </button>
+                <button type="submit" id="validasi_konsumen" name="validasi_konsumen" class="btn btn-primary">Validasi</button>
+            </div>
+            <?php echo form_close(); ?>
+        </div>
+    </div>
+</div>
+<!-- Form Ajax Kategori Juri -->
+<script type="text/javascript">
+    $(document).on("click", "#detail_validasi", function() {
+        var id_konsumen = $(this).data('id_konsumen');
+        var nm_konsumen = $(this).data('nm_konsumen');
+        var email = $(this).data('email');
+        var no_hp = $(this).data('no_hp');
+        var alamat = $(this).data('alamat');
+        $(".modal-body#detail_body #id_konsumen").val(id_konsumen);
+        $(".modal-body#detail_body #nm_konsumen").val(nm_konsumen);
+        $(".modal-body#detail_body #email").val(email);
+        $(".modal-body#detail_body #no_hp").val(no_hp);
+        $(".modal-body#detail_body #alamat").val(alamat);
+    })
+</script>

@@ -33,6 +33,14 @@ class ControllerProduk extends CI_Controller
             $this->insert_model->tambah_produk();
             redirect('admin/produk');
         endif;
+        if (isset($_POST['ubah_produk'])) :
+            $this->update_model->ubah_produk();
+            redirect('admin/produk');
+        endif;
+        if (isset($_POST['hapus_produk'])) :
+            $this->update_model->hapus_produk();
+            redirect('admin/produk');
+        endif;
     }
 }
         
