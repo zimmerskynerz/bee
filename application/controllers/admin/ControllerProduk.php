@@ -20,7 +20,9 @@ class ControllerProduk extends CI_Controller
                 'folder'                            => 'produk',
                 'halaman'                           => 'index',
                 // Halaman Data Produk
-                'data_produk'                       => $data_produk
+                'data_produk'                       => $data_produk,
+                // Data Admin
+                'identitas'                         => $data_login
             );
             $this->load->view('admin/include/index', $data);
         else :

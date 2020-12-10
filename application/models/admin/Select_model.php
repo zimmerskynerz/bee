@@ -67,4 +67,18 @@ class Select_model extends CI_Model
         $query  = $this->db->get();
         return $query->result();
     }
+    function getDataTransaksiSelesaiTanggal()
+    {
+        $bulan  = $this->input->post('bulan');
+        $tahun  = $this->input->post('tahun');
+        $query  = $this->db->select('*');
+        $query  = $this->db->from('tbl_traksaksi as A');
+        $query  = $this->db->join('tbl_konsumen as B', 'A.id_konsumen=B.id_konsumen');
+        $query  = $this->db->join('tbl_produk as C', 'A.id_produk=C.id_produk');
+        $query  = $this->db->where('status_transaksi', 'SELESAI');
+        $query  = $this->db->where('month(tgl_selesai)', $bulan);
+        $query  = $this->db->where('year(tgl_selesai)', $tahun);
+        $query  = $this->db->get();
+        return $query->result();
+    }
 }

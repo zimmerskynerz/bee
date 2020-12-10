@@ -21,7 +21,9 @@ class ControllerPengguna extends CI_Controller
                 'folder'                            => 'pengguna',
                 'halaman'                           => 'admin',
                 // Data Admin
-                'data_admin'                        => $data_admin
+                'data_admin'                        => $data_admin,
+                // Data Admin
+                'identitas'                         => $data_login
             );
             $this->load->view('admin/include/index', $data);
         else :
@@ -37,7 +39,9 @@ class ControllerPengguna extends CI_Controller
                 'folder'                            => 'pengguna',
                 'halaman'                           => 'validasi',
                 // Halaman Validasi
-                'data_validasi'                     => $konsumen_validasi
+                'data_validasi'                     => $konsumen_validasi,
+                // Data Admin
+                'identitas'                         => $data_login
             );
             $this->load->view('admin/include/index', $data);
         else :
@@ -53,7 +57,9 @@ class ControllerPengguna extends CI_Controller
                 'folder'                            => 'pengguna',
                 'halaman'                           => 'konsumen',
                 // Halaman Konsumen
-                'data_konsumen'                     => $data_konsumen
+                'data_konsumen'                     => $data_konsumen,
+                // Data Admin
+                'identitas'                         => $data_login
             );
             $this->load->view('admin/include/index', $data);
         else :

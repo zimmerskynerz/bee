@@ -21,7 +21,9 @@ class ControllerTransaksi extends CI_Controller
                 'folder'                            => 'transaksi',
                 'halaman'                           => 'baru',
                 // Halaman data transaksi konfirmasi
-                'data_konfirmasi'                   => $data_transaksi
+                'data_konfirmasi'                   => $data_transaksi,
+                // Data Admin
+                'identitas'                         => $data_login
             );
             $this->load->view('admin/include/index', $data);
         else :
@@ -37,7 +39,9 @@ class ControllerTransaksi extends CI_Controller
                 'folder'                            => 'transaksi',
                 'halaman'                           => 'pembayaran',
                 // Halaman Data Pembayaran
-                'data_pembayaran'                   => $data_pembayaran
+                'data_pembayaran'                   => $data_pembayaran,
+                // Data Admin
+                'identitas'                         => $data_login
             );
             $this->load->view('admin/include/index', $data);
         else :
@@ -53,7 +57,9 @@ class ControllerTransaksi extends CI_Controller
                 'folder'                            => 'transaksi',
                 'halaman'                           => 'proses',
                 // Halaman Proses
-                'data_proses'                   => $data_proses
+                'data_proses'                   => $data_proses,
+                // Data Admin
+                'identitas'                         => $data_login
             );
             $this->load->view('admin/include/index', $data);
         else :
@@ -69,7 +75,9 @@ class ControllerTransaksi extends CI_Controller
                 'folder'                            => 'transaksi',
                 'halaman'                           => 'selesai',
                 // Halaman Proses
-                'data_selesai'                   => $data_selesai
+                'data_selesai'                   => $data_selesai,
+                // Data Admin
+                'identitas'                         => $data_login
             );
             $this->load->view('admin/include/index', $data);
         else :

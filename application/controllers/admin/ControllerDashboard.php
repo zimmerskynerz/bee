@@ -21,7 +21,9 @@ class ControllerDashboard extends CI_Controller
                 'folder'                            => 'beranda',
                 'halaman'                           => 'index',
                 // Halaman Validasi
-                'data_validasi'                     => $konsumen_validasi
+                'data_validasi'                     => $konsumen_validasi,
+                // Data Admin
+                'identitas'                         => $data_login
             );
             $this->load->view('admin/include/index', $data);
         else :
@@ -30,15 +32,49 @@ class ControllerDashboard extends CI_Controller
     }
     public function laporan()
     {
-        $data_login = $this->db->get_where('tbl_admin', ['email' => $this->session->userdata('email')])->row_array();
-        if ($data_login > 0) :
-            $data = array(
-                'folder'                            => 'beranda',
-                'halaman'                           => 'laporan'
-            );
-            $this->load->view('admin/include/index', $data);
+        if (isset($_POST['cek_laporan'])) :
+            $data_login = $this->db->get_where('tbl_admin', ['email' => $this->session->userdata('email')])->row_array();
+            if ($data_login > 0) :
+                $data_selesai = $this->select_model->getDataTransaksiSelesaiTanggal();
+                $data = array(
+                    'folder'                            => 'beranda',
+                    'halaman'                           => 'laporan',
+                    // Halaman Data Laporan Transaksi
+                    'data_selesai'                      => $data_selesai,
+                    // Data Admin
+                    'identitas'                         => $data_login
+                );
+                $this->load->view('admin/include/index', $data);
+            else :
+                redirect('admin/logout');
+            endif;
+        elseif (isset($_POST['cetak_laporan'])) :
+            $data_login = $this->db->get_where('tbl_admin', ['email' => $this->session->userdata('email')])->row_array();
+            if ($data_login > 0) :
+                $data_selesai = $this->select_model->getDataTransaksiSelesaiTanggal();
+                $data = array(
+                    'data_selesai'                      => $data_selesai
+                );
+                $this->load->view('admin/beranda/cetak_laporan', $data);
+            else :
+                redirect('admin/logout');
+            endif;
         else :
-            redirect('admin/logout');
+            $data_login = $this->db->get_where('tbl_admin', ['email' => $this->session->userdata('email')])->row_array();
+            if ($data_login > 0) :
+                $data_selesai = $this->select_model->getDataTransaksiSelesai();
+                $data = array(
+                    'folder'                            => 'beranda',
+                    'halaman'                           => 'laporan',
+                    // Halaman Data Laporan Transaksi
+                    'data_selesai'                      => $data_selesai,
+                    // Data Admin
+                    'identitas'                         => $data_login
+                );
+                $this->load->view('admin/include/index', $data);
+            else :
+                redirect('admin/logout');
+            endif;
         endif;
     }
     public function profile()

@@ -5,7 +5,7 @@ class Update_model extends CI_Model
     function reset_pass()
     {
         $data = array(
-            'password' => 'ADMIN123abc'
+            'password' => md5('ADMIN123abc')
         );
         $this->db->where('id_admin', $this->input->post('id_admin'));
         $this->db->update('tbl_admin', $data);

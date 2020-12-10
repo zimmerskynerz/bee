@@ -123,9 +123,6 @@
                         <a href="<?= base_url('admin/akun/laporan') ?>"> Laporan </a>
                     </li>
                     <li>
-                        <a href="<?= base_url('admin/akun/profile') ?>"> Profile </a>
-                    </li>
-                    <li>
                         <a href="<?= base_url('admin/logout') ?>"> Logout </a>
                     </li>
                 </ul>
