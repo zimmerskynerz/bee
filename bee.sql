@@ -188,7 +188,7 @@ ALTER TABLE `tbl_traksaksi`
 ALTER TABLE `tbl_admin`
   MODIFY `id_admin` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
---
+-- 
 -- AUTO_INCREMENT untuk tabel `tbl_chat`
 --
 ALTER TABLE `tbl_chat`
