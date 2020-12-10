@@ -41,8 +41,8 @@ $route['admin/akun/profile']                                    = 'admin/Control
 
 // Halaman Pemilik
 // Dashboard Laporan Penjualan
+$route['pemilik']                                               = 'pemilik/ControllerDashboard/index';
 $route['pemilik/laporan']                                       = 'pemilik/ControllerDashboard/index';
 $route['pemilik/profile']                                       = 'pemilik/ControllerDashboard/profile';
 $route['pemilik/crudpemilik']                                   = 'pemilik/ControllerDashboard/crudpemilik';
-
 // Halaman Konsumen

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 10 Des 2020 pada 08.42
+-- Waktu pembuatan: 10 Des 2020 pada 19.16
 -- Versi server: 10.4.14-MariaDB
 -- Versi PHP: 7.3.22
 
@@ -44,8 +44,8 @@ CREATE TABLE `tbl_admin` (
 --
 
 INSERT INTO `tbl_admin` (`id_admin`, `email`, `password`, `nm_lengkap`, `no_hp`, `alamat`, `tgl_gabung`, `status`, `status_pegawai`) VALUES
-(1, 'pemilik@pemilik.com', '9d127228d15be02d35d734084e571731', 'Ari A Wijaya', '08291829398398', 'Kudus', '2020-12-09', 'AKTIF', 'ADMIN'),
-(2, 'aji@gmail.com', 'ADMIN123abc', 'Aji Wijaya2', '0829382982', 'Kudus', '2020-12-09', 'AKTIF', 'ADMIN');
+(1, 'pemilik@pemilik.com', '9d127228d15be02d35d734084e571731', 'Ari A Wijaya', '08291829398398', 'Kudus', '2020-12-09', 'AKTIF', 'PEMILIK'),
+(2, 'aji@gmail.com', '8253b3d1771b5edd8d960abb1505c053', 'Aji Wijaya2', '0829382982', 'Kudus', '2020-12-09', 'AKTIF', 'ADMIN');
 
 -- --------------------------------------------------------
 
