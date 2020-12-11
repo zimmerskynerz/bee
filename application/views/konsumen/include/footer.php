@@ -1,9 +1,9 @@
     <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
-    <script src="<?= base_url('assets/') ?>js/libs/jquery-3.1.1.min.js"></script>
+    <script src="<?= base_url('assets/') ?>"></script>
     <script src="<?= base_url('assets/') ?>bootstrap/js/popper.min.js"></script>
     <script src="<?= base_url('assets/') ?>bootstrap/js/bootstrap.min.js"></script>
-    <script src="<?= base_url('assets/') ?>plugins/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-    <script src="<?= base_url('assets/') ?>js/app.js"></script>
+    <script src="<?= base_url('assets/') ?>plugins/-scrollbar.min.js"></script>
+    <script src="<?= base_url('assets/') ?>.js"></script>
     <script src="<?= base_url('assets/') ?>js/apps/mailbox-chat.js"></script>
     <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
 
@@ -14,8 +14,8 @@
             App.init();
         });
     </script>
-    <script src="<?= base_url('assets/') ?>plugins/highlight/highlight.pack.js"></script>
-    <script src="<?= base_url('assets/') ?>js/custom.js"></script>
+    <script src="<?= base_url('assets/') ?>plugins/hlight.pack.js"></script>
+    <script src="<?= base_url('assets/') ?>stom.js"></script>
     <!-- END GLOBAL MANDATORY SCRIPTS -->
 
     <!-- BEGIN PAGE LEVEL  SCRIPTS -->
@@ -170,4 +170,22 @@
             console.log('on before zoomed out on:')
             console.log(el)
         }
+    </script>
+    <script src="<?= base_url('assets/') ?>plugins/blockui/jquery.blockUI.min.js"></script>
+    <!-- END GLOBAL MANDATORY SCRIPTS -->
+    <!-- BEGIN PAGE LEVEL SCRIPTS -->
+    <script>
+        var getInputStatus = document.getElementById('radio-6');
+        var getPricingContainer = document.getElementsByClassName('pricing-plans-container')[0];
+        var getYearlySwitch = document.getElementsByClassName('billed-yearly-radio')[0];
+        getInputStatus.addEventListener('change', function() {
+            var isChecked = getInputStatus.checked;
+            if (isChecked) {
+                getPricingContainer.classList.add("billed-yearly");
+                getYearlySwitch.classList.add("billed-yearly-switch");
+            } else {
+                getYearlySwitch.classList.remove("billed-yearly-switch");
+                getPricingContainer.classList.remove("billed-yearly");
+            }
+        })
     </script>

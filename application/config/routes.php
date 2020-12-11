@@ -42,7 +42,20 @@ $route['admin/akun/profile']                                    = 'admin/Control
 // Halaman Pemilik
 // Dashboard Laporan Penjualan
 $route['pemilik']                                               = 'pemilik/ControllerDashboard/index';
+$route['pemilik/dashboard']                                     = 'pemilik/ControllerDashboard/index';
 $route['pemilik/laporan']                                       = 'pemilik/ControllerDashboard/index';
 $route['pemilik/profile']                                       = 'pemilik/ControllerDashboard/profile';
 $route['pemilik/crudpemilik']                                   = 'pemilik/ControllerDashboard/crudpemilik';
+// Halaman Transaksi
+$route['pemilik/transaksi/baru']                                = 'pemilik/ControllerTransaksi/baru';
+$route['pemilik/transaksi/pembayaran']                          = 'pemilik/ControllerTransaksi/pembayaran';
+$route['pemilik/transaksi/proses']                              = 'pemilik/ControllerTransaksi/proses';
+$route['pemilik/transaksi/selesai']                             = 'pemilik/ControllerTransaksi/selesai';
+// Halaman Akun
+$route['pemilik/akun/laporan']                                  = 'pemilik/ControllerDashboard/index';
+$route['pemilik/logout']                                        = 'admin/ControllerAuth/logout';
+
+
 // Halaman Konsumen
+// Halaman Utama Tanpa Login
+$route['produk']                                                = 'konsumen/ControllerProduk/index';
