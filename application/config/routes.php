@@ -58,4 +58,18 @@ $route['pemilik/logout']                                        = 'admin/Control
 
 // Halaman Konsumen
 // Halaman Utama Tanpa Login
-$route['produk']                                                = 'konsumen/ControllerProduk/index';
+$route['konsumen/login']                                        = 'konsumen/ControllerAkun/login';
+$route['konsumen/daftar']                                       = 'konsumen/ControllerAkun/daftar';
+$route['konsumen/cek_login']                                    = 'konsumen/ControllerAkun/cek_login';
+$route['konsumen/proses_daftar']                                = 'konsumen/ControllerAkun/proses_daftar';
+// Halaman Konsumen Login
+$route['konsumen']                                              = 'konsumen/ControllerBeranda/index';
+$route['konsumen/dashboard']                                    = 'konsumen/ControllerBeranda/index';
+// Halaman Chat dan Nego
+$route['konsumen/chat/inbox']                                   = 'konsumen/ControllerChat/index';
+// Halaman Transaksi
+$route['konsumen/transaksi/baru']                                = 'konsumen/ControllerTransaksi/baru';
+$route['konsumen/transaksi/pembayaran']                          = 'konsumen/ControllerTransaksi/pembayaran';
+$route['konsumen/transaksi/proses']                              = 'konsumen/ControllerTransaksi/proses';
+$route['konsumen/transaksi/selesai']                             = 'konsumen/ControllerTransaksi/selesai';
+$route['konsumen/transaksi/crudtransaksi']                       = 'konsumen/ControllerTransaksi/crudtransaksi';

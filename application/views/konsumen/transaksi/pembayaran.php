@@ -23,7 +23,6 @@
                                         <th class="text-center">Foto Bukti</th>
                                         <th class="text-center">Jumlah Produk</th>
                                         <th class="text-center">Total Harga</th>
-                                        <th class="text-center">Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -32,7 +31,7 @@
                                         <tr>
                                             <td class="text-center"><?= $no ?></td>
                                             <td style="text-align: center;"><?= date('Ymd', strtotime($Data_pembayaran->tgl_transaksi)) ?><?= $Data_pembayaran->id_transaksi ?></td>
-                                            <td><?= date('d F Y', strtotime($Data_pembayaran->tgl_selesai)) ?></td>
+                                            <td><?= date('d F Y', strtotime($Data_pembayaran->tgl_bayar)) ?></td>
                                             <td><?= $Data_pembayaran->nm_konsumen ?></td>
                                             <td><?= $Data_pembayaran->nm_produk ?></td>
                                             <td class="text-center">
@@ -41,14 +40,7 @@
                                             <td class="text-center"><?= $Data_pembayaran->jml_barang ?></td>
                                             <td class="text-right"><?= $Data_pembayaran->total_harga ?>,-</td>
                                             <!-- <td class="text-center"><span class="shadow-none badge badge-primary">Approved</span></td> -->
-                                            <td style="text-align: center;">
-                                                <a id="detail_pembayaran" href="javascript:void(0);" class="bs-tooltip" data-toggle="modal" data-target="#pembayaran_detail" data-placement="top" title="" data-original-title="Detail" data-id_transaksi="<?= $Data_pembayaran->id_transaksi ?>" data-kode_transaksi="<?= date('Ymd', strtotime($Data_pembayaran->tgl_transaksi)) ?><?= $Data_pembayaran->id_transaksi ?>" data-jml_barang="<?= $Data_pembayaran->jml_barang ?>" data-total_harga="<?= $Data_pembayaran->total_harga ?>" data-foto_bayar="<?= $Data_pembayaran->foto_bayar ?>" data-harga_produk="<?= $Data_pembayaran->harga_produk ?>">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit">
-                                                        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
-                                                        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
-                                                    </svg>
-                                                </a>
-                                            </td>
+
                                         </tr>
                                         <?php $no++ ?>
                                     <?php endforeach; ?>

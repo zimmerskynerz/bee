@@ -10,7 +10,7 @@
                 </button>
             </div>
             <div class="modal-body" id="detail_body">
-                <?php echo form_open_multipart('admin/transaksi/crudtransaksi'); ?>
+                <?php echo form_open_multipart('konsumen/transaksi/crudtransaksi'); ?>
                 <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>" style="display: none">
                 <div class="form-group">
                     <label for="">Nama Produk</label>
@@ -23,19 +23,22 @@
                 </div>
                 <div class="form-group">
                     <label for="">Jumlah Beli</label>
-                    <input type="number" class="form-control" id="jml_barang" name="jml_barang" placeholder="Detail Produk" required>
+                    <input type="number" class="form-control" id="jml_barang" name="jml_barang" placeholder="Detail Produk" readonly required>
                 </div>
                 <div class="form-group">
                     <label for="">Total Harga</label>
                     <input type="text" class="form-control" id="total_harga" readonly name="total_harga" placeholder="Detail Produk" required>
+                </div>
+                <div class="form-group">
+                    <label for="">Bukti Transfer</label>
+                    <input type="file" class="form-control" id="foto_bayar" name="foto_bayar" placeholder="Detail Produk" required>
                 </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-outline-primary" data-dismiss="modal">
                     Close
                 </button>
-                <button type="submit" id="batal_transaksi" name="batal_transaksi" class="btn btn-danger">Hapus</button>
-                <button type="submit" id="ubah_transaksi" name="ubah_transaksi" class="btn btn-primary">Ubah</button>
+                <button type="submit" id="kirim_bukti" name="kirim_bukti" class="btn btn-success">Kirim Bukti</button>
             </div>
             <?php echo form_close(); ?>
         </div>

@@ -79,4 +79,30 @@ class Update_model extends CI_Model
             $this->db->update('tbl_sip', $data);
         endif;
     }
+    function kirim_bukti()
+    {
+        $config['upload_path']   = './assets/bayar';
+        $config['allowed_types'] = 'jpeg|jpg|png|gif';
+        $config['encrypt_name']  = true;
+        $config['overwrite']     = true;
+        $config['max_size']      = 10024; // 10MB
+        $this->load->library('upload', $config);
+        if (!$this->upload->do_upload('foto_bayar')) {
+            redirect('konsumen/transaksi/baru');
+        } else {
+            $_FILES['file']['name'] = $_FILES['foto_bayar']['name'];
+            $_FILES['file']['type'] = $_FILES['foto_bayar']['type'];
+            $_FILES['file']['tmp_name'] = $_FILES['foto_bayar']['tmp_name'];
+            $_FILES['file']['size'] = $_FILES['foto_bayar']['size'];
+            $uploadData = $this->upload->data();
+            $data = array(
+                'tgl_bayar' => date('Y-m-d'),
+                'foto_bayar' => $uploadData['file_name'],
+                'status_transaksi' => 'BAYAR'
+            );
+            $this->db->where('id_transaksi', $this->input->post('id_transaksi'));
+            $this->db->update('tbl_traksaksi', $data);
+            redirect('konsumen/transaksi/pembayaran');
+        }
+    }
 }

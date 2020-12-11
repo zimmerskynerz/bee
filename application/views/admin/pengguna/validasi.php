@@ -19,7 +19,6 @@
                                             <th class="text-center">No</th>
                                             <th class="text-center">Foto</th>
                                             <th class="text-center">Nama</th>
-                                            <th class="text-center">Tanggal Lahir</th>
                                             <th class="text-center">Email</th>
                                             <th class="text-center">No HP</th>
                                             <th class="text-center">Alamat</th>
@@ -35,7 +34,6 @@
                                                     <span><img src="<?= base_url('assets/konsumen/' . $Data_validasi->foto . '') ?>" class="profile-img" alt="avatar"></span>
                                                 </td>
                                                 <td><?= $Data_validasi->nm_konsumen ?></td>
-                                                <td style="text-align: center;"><?= date('d F Y', strtotime($Data_validasi->tgl_lahir)) ?></td>
                                                 <td><?= $Data_validasi->email ?></td>
                                                 <td><?= $Data_validasi->no_hp ?></td>
                                                 <td><?= $Data_validasi->alamat ?></td>

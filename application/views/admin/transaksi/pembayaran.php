@@ -32,7 +32,7 @@
                                         <tr>
                                             <td class="text-center"><?= $no ?></td>
                                             <td style="text-align: center;"><?= date('Ymd', strtotime($Data_pembayaran->tgl_transaksi)) ?><?= $Data_pembayaran->id_transaksi ?></td>
-                                            <td><?= date('d F Y', strtotime($Data_pembayaran->tgl_selesai)) ?></td>
+                                            <td><?= date('d F Y', strtotime($Data_pembayaran->tgl_bayar)) ?></td>
                                             <td><?= $Data_pembayaran->nm_konsumen ?></td>
                                             <td><?= $Data_pembayaran->nm_produk ?></td>
                                             <td class="text-center">

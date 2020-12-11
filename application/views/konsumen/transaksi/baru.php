@@ -38,13 +38,7 @@
                                             <td class="text-right"><?= $Data_konfirmasi->total_harga ?>,-</td>
                                             <!-- <td class="text-center"><span class="shadow-none badge badge-primary">Approved</span></td> -->
                                             <td style="text-align: center;">
-                                                <a id="detail_konfirmasi" href="javascript:void(0);" class="bs-tooltip" data-toggle="modal" data-target="#konfirmasi_detail" data-placement="top" title="" data-original-title="Detail" 
-                                                data-id_transaksi="<?= $Data_konfirmasi->id_transaksi ?>" 
-                                                data-kode_transaksi="<?= date('Ymd', strtotime($Data_konfirmasi->tgl_transaksi)) ?><?= $Data_konfirmasi->id_transaksi ?>" 
-                                                data-id_produk="<?= $Data_konfirmasi->id_produk ?>" 
-                                                data-jml_barang="<?= $Data_konfirmasi->jml_barang ?>" 
-                                                data-total_harga="<?= $Data_konfirmasi->total_harga ?>"
-                                                data-harga_produk="<?= $Data_konfirmasi->harga_produk ?>">
+                                                <a id="detail_konfirmasi" href="javascript:void(0);" class="bs-tooltip" data-toggle="modal" data-target="#konfirmasi_detail" data-placement="top" title="" data-original-title="Detail" data-id_transaksi="<?= $Data_konfirmasi->id_transaksi ?>" data-kode_transaksi="<?= date('Ymd', strtotime($Data_konfirmasi->tgl_transaksi)) ?><?= $Data_konfirmasi->id_transaksi ?>" data-id_produk="<?= $Data_konfirmasi->id_produk ?>" data-jml_barang="<?= $Data_konfirmasi->jml_barang ?>" data-total_harga="<?= $Data_konfirmasi->total_harga ?>" data-harga_produk="<?= $Data_konfirmasi->harga_produk ?>">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit">
                                                         <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
                                                         <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
@@ -63,4 +57,4 @@
         </div>
     </div>
 </div>
-<?php $this->load->view('admin/transaksi/detail_data') ?>
+<?php $this->load->view('konsumen/transaksi/detail_data') ?>

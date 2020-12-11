@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 10 Des 2020 pada 19.16
+-- Waktu pembuatan: 11 Des 2020 pada 04.00
 -- Versi server: 10.4.14-MariaDB
 -- Versi PHP: 7.3.22
 
@@ -75,7 +75,6 @@ CREATE TABLE `tbl_konsumen` (
   `nm_konsumen` text NOT NULL,
   `no_hp` text DEFAULT NULL,
   `alamat` text DEFAULT NULL,
-  `tgl_lahir` date DEFAULT NULL,
   `foto` text DEFAULT NULL,
   `status_validasi` enum('DAFTAR','AKTIF','BLOKIR','HAPUS','TOLAK') NOT NULL DEFAULT 'DAFTAR',
   `tgl_daftar` date NOT NULL,
@@ -86,8 +85,9 @@ CREATE TABLE `tbl_konsumen` (
 -- Dumping data untuk tabel `tbl_konsumen`
 --
 
-INSERT INTO `tbl_konsumen` (`id_konsumen`, `email`, `password`, `nm_konsumen`, `no_hp`, `alamat`, `tgl_lahir`, `foto`, `status_validasi`, `tgl_daftar`, `ket_lain`) VALUES
-(1, 'lovanio@gmail.com', '9d127228d15be02d35d734084e571731', 'LOVAN', '0895411547434', 'KUDUS', '2020-12-10', 'default.png', 'AKTIF', '2020-12-10', NULL);
+INSERT INTO `tbl_konsumen` (`id_konsumen`, `email`, `password`, `nm_konsumen`, `no_hp`, `alamat`, `foto`, `status_validasi`, `tgl_daftar`, `ket_lain`) VALUES
+(1, 'lovanio@gmail.com', '9d127228d15be02d35d734084e571731', 'LOVAN', '0895411547434', 'KUDUS', 'default.png', 'AKTIF', '2020-12-10', NULL),
+(2, 'ajiw100@gmail.com', '9d127228d15be02d35d734084e571731', 'Aji WIjaya', '08398388383', 'Kudus', 'default.png', 'AKTIF', '2020-12-11', 'DAFTAR');
 
 -- --------------------------------------------------------
 
@@ -136,7 +136,8 @@ CREATE TABLE `tbl_traksaksi` (
 --
 
 INSERT INTO `tbl_traksaksi` (`id_transaksi`, `tgl_transaksi`, `tgl_bayar`, `tgl_selesai`, `id_konsumen`, `id_produk`, `foto_bayar`, `status_transaksi`, `ket_lain`, `jml_barang`, `total_harga`) VALUES
-(2, '2020-12-10', '2020-12-10', '2020-12-11', 1, 1, '1527432881_27-05-2018_photo6077615961109801020.jpg', 'SELESAI', 'BARANG ANDA SEDANG DIKIRIM. NO RESI : fds322323', 2, 6000000);
+(2, '2020-12-10', '2020-12-10', '2020-12-11', 1, 1, '1527432881_27-05-2018_photo6077615961109801020.jpg', 'SELESAI', 'BARANG ANDA SEDANG DIKIRIM. NO RESI : fds322323', 2, 6000000),
+(3, '2020-12-11', '2020-12-11', NULL, 2, 1, '688020a34f87f071dc3e1b6accf22aa6.jpg', 'KONFIRMASI', NULL, 12, 1);
 
 --
 -- Indexes for dumped tables
@@ -188,7 +189,7 @@ ALTER TABLE `tbl_traksaksi`
 ALTER TABLE `tbl_admin`
   MODIFY `id_admin` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
--- 
+--
 -- AUTO_INCREMENT untuk tabel `tbl_chat`
 --
 ALTER TABLE `tbl_chat`
@@ -198,7 +199,7 @@ ALTER TABLE `tbl_chat`
 -- AUTO_INCREMENT untuk tabel `tbl_konsumen`
 --
 ALTER TABLE `tbl_konsumen`
-  MODIFY `id_konsumen` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_konsumen` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_produk`
@@ -210,7 +211,7 @@ ALTER TABLE `tbl_produk`
 -- AUTO_INCREMENT untuk tabel `tbl_traksaksi`
 --
 ALTER TABLE `tbl_traksaksi`
-  MODIFY `id_transaksi` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_transaksi` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)

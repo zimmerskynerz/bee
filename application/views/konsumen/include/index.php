@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<?php $this->load->view('admin/include/head') ?>
+<?php $this->load->view('konsumen/include/head') ?>
 
 <body class="alt-menu sidebar-noneoverflow">
     <!-- BEGIN LOADER -->
@@ -15,7 +15,7 @@
     <!--  END LOADER -->
 
     <!--  BEGIN NAVBAR  -->
-    <?php $this->load->view('admin/include/nav_bar') ?>
+    <?php $this->load->view('konsumen/include/nav_bar') ?>
     <!--  END NAVBAR  -->
 
     <!--  BEGIN MAIN CONTAINER  -->
@@ -25,16 +25,16 @@
         <div class="search-overlay"></div>
 
         <!--  BEGIN TOPBAR  -->
-        <?php $this->load->view('admin/include/top_bar') ?>
+        <?php $this->load->view('konsumen/include/top_bar') ?>
         <!--  END TOPBAR  -->
 
         <!--  BEGIN CONTENT PART  -->
-        <?php $this->load->view('admin/' . $folder . '/' . $halaman . '') ?>
+        <?php $this->load->view('konsumen/' . $folder . '/' . $halaman . '') ?>
         <!--  END CONTENT PART  -->
 
     </div>
     <!-- END MAIN CONTAINER -->
-    <?php $this->load->view('admin/include/footer.php') ?>
+    <?php $this->load->view('konsumen/include/footer.php') ?>
 </body>
 
 </html>
