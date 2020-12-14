@@ -67,6 +67,7 @@ $route['konsumen']                                              = 'konsumen/Cont
 $route['konsumen/dashboard']                                    = 'konsumen/ControllerBeranda/index';
 // Halaman Chat dan Nego
 $route['konsumen/chat/inbox']                                   = 'konsumen/ControllerChat/index';
+$route['konsumen/chat/store']                                   = 'konsumen/ControllerChat/store';
 // Halaman Transaksi
 $route['konsumen/transaksi/baru']                                = 'konsumen/ControllerTransaksi/baru';
 $route['konsumen/transaksi/pembayaran']                          = 'konsumen/ControllerTransaksi/pembayaran';

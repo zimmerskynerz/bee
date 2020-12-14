@@ -1,21 +1,19 @@
     <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
-    <script src="<?= base_url('assets/') ?>"></script>
     <script src="<?= base_url('assets/') ?>bootstrap/js/popper.min.js"></script>
     <script src="<?= base_url('assets/') ?>bootstrap/js/bootstrap.min.js"></script>
-    <script src="<?= base_url('assets/') ?>plugins/-scrollbar.min.js"></script>
-    <script src="<?= base_url('assets/') ?>.js"></script>
+    <!-- <script src="<?= base_url('assets/') ?>plugins/perfect-scrollbar/perfect-scrollbar.min.js"></script> -->
     <script src="<?= base_url('assets/') ?>js/apps/mailbox-chat.js"></script>
     <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
 
     <!-- END GLOBAL MANDATORY SCRIPTS -->
-    <script src="<?= base_url('assets/') ?>js/authentication/form-2.js"></script>
+    <!-- <script src="<?= base_url('assets/') ?>js/authentication/form-2.js"></script>
     <script>
         $(document).ready(function() {
             App.init();
         });
-    </script>
-    <script src="<?= base_url('assets/') ?>plugins/hlight.pack.js"></script>
-    <script src="<?= base_url('assets/') ?>stom.js"></script>
+    </script> -->
+    <!-- <script src="<?= base_url('assets/') ?>plugins/hlight.pack.js"></script> -->
+    <!-- <script src="<?= base_url('assets/') ?>stom.js"></script> -->
     <!-- END GLOBAL MANDATORY SCRIPTS -->
 
     <!-- BEGIN PAGE LEVEL  SCRIPTS -->
@@ -83,7 +81,7 @@
             "pageLength": 5
         });
 
-        multiCheck(c1);
+        // multiCheck(c1);
 
         c2 = $('#style-2').DataTable({
             headerCallback: function(e, a, t, n, s) {
@@ -112,7 +110,7 @@
             "pageLength": 5
         });
 
-        multiCheck(c2);
+        // multiCheck(c2);
 
         c3 = $('#style-3').DataTable({
             "oLanguage": {
@@ -130,7 +128,7 @@
             "pageLength": 5
         });
 
-        multiCheck(c3);
+        // multiCheck(c3);
     </script>
     <!-- END PAGE LEVEL SCRIPTS -->
     <script src="<?= base_url('assets/') ?>plugins/zoomerang/zoomerang.js"></script>
@@ -175,17 +173,17 @@
     <!-- END GLOBAL MANDATORY SCRIPTS -->
     <!-- BEGIN PAGE LEVEL SCRIPTS -->
     <script>
-        var getInputStatus = document.getElementById('radio-6');
-        var getPricingContainer = document.getElementsByClassName('pricing-plans-container')[0];
-        var getYearlySwitch = document.getElementsByClassName('billed-yearly-radio')[0];
-        getInputStatus.addEventListener('change', function() {
-            var isChecked = getInputStatus.checked;
-            if (isChecked) {
-                getPricingContainer.classList.add("billed-yearly");
-                getYearlySwitch.classList.add("billed-yearly-switch");
-            } else {
-                getYearlySwitch.classList.remove("billed-yearly-switch");
-                getPricingContainer.classList.remove("billed-yearly");
-            }
-        })
+        // var getInputStatus = document.getElementById('radio-6');
+        // var getPricingContainer = document.getElementsByClassName('pricing-plans-container')[0];
+        // var getYearlySwitch = document.getElementsByClassName('billed-yearly-radio')[0];
+        // getInputStatus.addEventListener('change', function() {
+        //     var isChecked = getInputStatus.checked;
+        //     if (isChecked) {
+        //         getPricingContainer.classList.add("billed-yearly");
+        //         getYearlySwitch.classList.add("billed-yearly-switch");
+        //     } else {
+        //         getYearlySwitch.classList.remove("billed-yearly-switch");
+        //         getPricingContainer.classList.remove("billed-yearly");
+        //     }
+        // })
     </script>

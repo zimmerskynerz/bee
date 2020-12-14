@@ -1,10 +1,10 @@
 // Cache selectors
 var lastId,
-    sidenav = $(".sidenav"),
-    // All list items
-    menuItems = sidenav.find("a");
+  sidenav = $(".sidenav"),
+  // All list items
+  menuItems = sidenav.find("a");
 
-menuItems.on('click', function(event) {
+menuItems.on('click', function (event) {
   // Make sure this.hash has a value before overriding default behavior
   if (this.hash !== "") {
     // Prevent default anchor click behavior
@@ -22,11 +22,14 @@ menuItems.on('click', function(event) {
 });
 
 
-function getContainerMargin() { 
+function getContainerMargin() {
   var p = document.getElementsByTagName("body")[0];
   var style = p.currentStyle || window.getComputedStyle(p);
 
-  document.getElementsByClassName('sidenav')[0].style.right = style.marginRight;
+  let sidenav = document.getElementsByClassName('sidenav')
+  if (sidenav.length > 0) {
+    sidenav[0].style.right = style.marginRight;
+  }
 }
-window.addEventListener('load',getContainerMargin,false);
+window.addEventListener('load', getContainerMargin, false);
 window.addEventListener("resize", getContainerMargin);
