@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 11 Des 2020 pada 04.00
+-- Waktu pembuatan: 15 Des 2020 pada 17.21
 -- Versi server: 10.4.14-MariaDB
 -- Versi PHP: 7.3.22
 
@@ -45,7 +45,8 @@ CREATE TABLE `tbl_admin` (
 
 INSERT INTO `tbl_admin` (`id_admin`, `email`, `password`, `nm_lengkap`, `no_hp`, `alamat`, `tgl_gabung`, `status`, `status_pegawai`) VALUES
 (1, 'pemilik@pemilik.com', '9d127228d15be02d35d734084e571731', 'Ari A Wijaya', '08291829398398', 'Kudus', '2020-12-09', 'AKTIF', 'PEMILIK'),
-(2, 'aji@gmail.com', '8253b3d1771b5edd8d960abb1505c053', 'Aji Wijaya2', '0829382982', 'Kudus', '2020-12-09', 'AKTIF', 'ADMIN');
+(2, 'aji@gmail.com', '8253b3d1771b5edd8d960abb1505c053', 'Aji Wijaya2', '0829382982', 'Kudus', '2020-12-09', 'AKTIF', 'ADMIN'),
+(3, 'admin@gmail.com', '9d127228d15be02d35d734084e571731', 'Lovan', '23923929', 'KUDUS', '2020-12-15', 'AKTIF', 'ADMIN');
 
 -- --------------------------------------------------------
 
@@ -61,6 +62,34 @@ CREATE TABLE `tbl_chat` (
   `type` enum('TEXT','GAMBAR','TRANSAKSI') NOT NULL,
   `isi_chat` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `tbl_chat`
+--
+
+INSERT INTO `tbl_chat` (`id_chat`, `id_konsumen`, `id_admin`, `sender`, `type`, `isi_chat`) VALUES
+(1, 2, 1, 'K', 'TEXT', 'halo'),
+(2, 2, 1, 'K', 'TEXT', 'welcl'),
+(3, 2, 1, 'K', 'TEXT', 'jfgklsdf'),
+(4, 2, 1, 'K', 'TEXT', 'sdfkjsdf'),
+(5, 2, 1, 'K', 'TEXT', 'j;sdfjk'),
+(6, 2, 1, 'K', 'TEXT', 'jksdf'),
+(7, 2, 1, 'K', 'TEXT', 'jksdf'),
+(8, 2, 1, 'K', 'TEXT', 'jl;sdf'),
+(9, 2, 1, 'K', 'TEXT', 'j;sdf'),
+(10, 2, 1, 'K', 'TEXT', 'j;sdf'),
+(11, 2, 1, 'K', 'TEXT', 'jh;sdf'),
+(12, 2, 1, 'K', 'TEXT', 'jsdf'),
+(13, 2, 1, 'K', 'TEXT', '\'piksdf\'js;df'),
+(14, 2, 1, 'K', 'TEXT', 'jsdfj;\''),
+(15, 2, 1, 'K', 'TEXT', 'jdsf;'),
+(16, 2, 1, 'K', 'TEXT', 'jsdof'),
+(17, 2, 1, 'K', 'TEXT', 'jsdf'),
+(18, 2, 1, 'K', 'TEXT', 'jksdfj'),
+(19, 2, 1, 'K', 'TEXT', 'jksdlf'),
+(20, 2, 1, 'K', 'TEXT', 'jkijfsdksjdf'),
+(21, 2, 1, 'K', 'TEXT', 'skdljf;sd'),
+(22, 2, 1, 'K', 'TEXT', 'jghj');
 
 -- --------------------------------------------------------
 
@@ -137,7 +166,7 @@ CREATE TABLE `tbl_traksaksi` (
 
 INSERT INTO `tbl_traksaksi` (`id_transaksi`, `tgl_transaksi`, `tgl_bayar`, `tgl_selesai`, `id_konsumen`, `id_produk`, `foto_bayar`, `status_transaksi`, `ket_lain`, `jml_barang`, `total_harga`) VALUES
 (2, '2020-12-10', '2020-12-10', '2020-12-11', 1, 1, '1527432881_27-05-2018_photo6077615961109801020.jpg', 'SELESAI', 'BARANG ANDA SEDANG DIKIRIM. NO RESI : fds322323', 2, 6000000),
-(3, '2020-12-11', '2020-12-11', NULL, 2, 1, '688020a34f87f071dc3e1b6accf22aa6.jpg', 'KONFIRMASI', NULL, 12, 1);
+(3, '2020-12-11', '2020-12-15', '2020-12-15', 2, 1, 'f3ea45612baf2f7b780c0516058c051d.png', 'SELESAI', 'BARANG ANDA SEDANG DIKIRIM. NO RESI : 32323232', 12, 1);
 
 --
 -- Indexes for dumped tables
@@ -187,13 +216,13 @@ ALTER TABLE `tbl_traksaksi`
 -- AUTO_INCREMENT untuk tabel `tbl_admin`
 --
 ALTER TABLE `tbl_admin`
-  MODIFY `id_admin` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_admin` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_chat`
 --
 ALTER TABLE `tbl_chat`
-  MODIFY `id_chat` int(9) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_chat` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_konsumen`
