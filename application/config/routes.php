@@ -27,8 +27,7 @@ $route['admin/produk']                                          = 'admin/Control
 $route['admin/produk/crudproduk']                               = 'admin/ControllerProduk/crudproduk';
 // Menu Pesan Chat &Nego
 $route['admin/chat/inbox']                                      = 'admin/ControllerChat/index';
-$route['admin/chat/inbox/(:any)']                               = 'admin/ControllerChat/pesan/$1';
-$route['admin/chat/kirimcrud']                                  = 'admin/ControllerChat/kirim_pesan';
+$route['admin/chat/store']                                      = 'admin/ControllerChat/store';
 // Menu Transaksi
 $route['admin/transaksi/baru']                                  = 'admin/ControllerTransaksi/baru';
 $route['admin/transaksi/pembayaran']                            = 'admin/ControllerTransaksi/pembayaran';
