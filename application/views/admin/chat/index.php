@@ -152,11 +152,16 @@
                                             </a>
 
                                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink-2">
-                                                <a class="dropdown-item" href="javascript:void(0);"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-settings">
-                                                        <circle cx="12" cy="12" r="3"></circle>
-                                                        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
-                                                    </svg>Transaksi</a>
-                                                <a class="dropdown-item" href="javascript:void(0);"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail">
+                                                <a class="dropdown-item" href="javascript:void(0);" id="tambah_transaksi">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-share-2">
+                                                        <circle cx="18" cy="5" r="3"></circle>
+                                                        <circle cx="6" cy="12" r="3"></circle>
+                                                        <circle cx="18" cy="19" r="3"></circle>
+                                                        <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                                                        <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+                                                    </svg> Transaksi
+                                                </a>
+                                                <!-- <a class="dropdown-item" href="javascript:void(0);"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail">
                                                         <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                                                         <polyline points="22,6 12,13 2,6"></polyline>
                                                     </svg> Mail</a>
@@ -170,20 +175,20 @@
                                                         <line x1="10" y1="11" x2="10" y2="17"></line>
                                                         <line x1="14" y1="11" x2="14" y2="17"></line>
                                                     </svg> Delete</a>
-                                                <a class="dropdown-item" href="javascript:void(0);"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-share-2">
+                                                <a class="dropdown-item" href="javascript:void(0);">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-share-2">
                                                         <circle cx="18" cy="5" r="3"></circle>
                                                         <circle cx="6" cy="12" r="3"></circle>
                                                         <circle cx="18" cy="19" r="3"></circle>
                                                         <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
                                                         <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
-                                                    </svg> Share</a>
+                                                    </svg> Share</a> -->
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="chat-conversation-box">
                                     <div id="chat-conversation-box-scroll" class="chat-conversation-box-scroll">
-
                                         <?php foreach ($people as $p) : ?>
                                             <div class="chat" data-chat="person<?= $p->id_konsumen ?>" data-idk="<?= $p->id_konsumen ?>">
                                                 <?php foreach ($chat as $c) : ?>
@@ -227,8 +232,14 @@
         </div>
     </div>
 </div>
+<?php $this->load->view('admin/chat/transaksi_data') ?>
 <script>
     $(document).ready(function() {
+        $('#tambah_transaksi').on('click', function(e) {
+            e.preventDefault();
+            $('#detail_transaski').modal('show');
+            $('#id_konsumen').val($('.chat.active-chat').data('idk'));
+        })
         $('#formChat').submit(function(e) {
             e.preventDefault();
             $.ajax({

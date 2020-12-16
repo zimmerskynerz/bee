@@ -86,6 +86,10 @@ class ControllerTransaksi extends CI_Controller
     }
     public function crudtransaksi()
     {
+        if (isset($_POST['kirim_transaksi'])) :
+            $this->insert_model->tambah_transaksi();
+            redirect('admin/transaksi/baru');
+        endif;
         if (isset($_POST['batal_transaksi'])) :
             $this->update_model->delete_transaksi();
             redirect('admin/transaksi/baru');

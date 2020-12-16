@@ -52,4 +52,21 @@ class Insert_model extends CI_Model
             $this->db->insert('tbl_produk', $data);
         }
     }
+    function tambah_transaksi()
+    {
+        $data = array(
+            'id_transaksi'      => '',
+            'tgl_transaksi'     => date('Y-m-d'),
+            'tgl_bayar'         => null,
+            'tgl_selesai'       => null,
+            'id_konsumen'       => htmlspecialchars($this->input->post('id_konsumen')),
+            'id_produk'         => htmlspecialchars($this->input->post('id_produk')),
+            'foto_bayar'         => null,
+            'status_transaksi'  => 'KONFIRMASI',
+            'ket_lain'          => 'NEGO',
+            'jml_barang'        => htmlspecialchars($this->input->post('jml_beli')),
+            'total_harga'        => htmlspecialchars($this->input->post('harga_nego'))
+        );
+        $this->db->insert('tbl_traksaksi', $data);
+    }
 }

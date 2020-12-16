@@ -11,15 +11,14 @@ class ControllerChat extends CI_Controller
         if ($data_login > 0) :
             // var_dump($_SESSION);
             // die();
+            $data_produk = $this->db->get_where('tbl_produk', ['status_produk' => 'ADA'])->result();
             $chat = $this->db->select('*')
-                ->where('tbl_chat.id_admin', $this->session->userdata('id_admin'))
                 ->get('tbl_chat')
                 ->result();
 
             $people = $this->db->select('tbl_chat.id_konsumen, tbl_chat.sender, tbl_konsumen.nm_konsumen, tbl_konsumen.foto')
                 ->join('tbl_konsumen', 'tbl_chat.id_konsumen = tbl_konsumen.id_konsumen')
                 ->where('tbl_chat.sender', 'K')
-                ->where('tbl_chat.id_admin', $this->session->userdata('id_admin'))
                 ->group_by('tbl_chat.id_konsumen')
                 ->get('tbl_chat')
                 ->result();
@@ -29,7 +28,8 @@ class ControllerChat extends CI_Controller
                 // Data Admin
                 'identitas'         => $data_login,
                 'chat'              => $chat,
-                'people'            => $people
+                'people'            => $people,
+                'data_produk'       => $data_produk
             );
             $this->load->view('admin/include/index', $data);
         else :
