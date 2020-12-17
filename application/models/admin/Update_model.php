@@ -105,4 +105,12 @@ class Update_model extends CI_Model
         $this->db->where('id_transaksi', $this->input->post('id_transaksi'));
         $this->db->update('tbl_traksaksi', $data);
     }
+    function hapus_produk()
+    {
+        $data = array(
+            'status_produk' => 'HAPUS'
+        );
+        $this->db->where('id_produk', $this->input->post('id_produk'));
+        $this->db->update('tbl_produk', $data);
+    }
 }
