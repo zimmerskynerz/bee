@@ -87,8 +87,21 @@ class ControllerTransaksi extends CI_Controller
     public function crudtransaksi()
     {
         if (isset($_POST['kirim_transaksi'])) :
+            $produk = $this->db->select('*')
+                ->where('id_produk', $this->input->post('id_produk'))
+                ->get('tbl_produk')
+                ->row();
+            $data = [
+                'id_konsumen'   => $this->input->post('id_konsumen'),
+                'id_admin'      => $this->session->userdata('id_admin'),
+                'sender'        => 'A',
+                'type'          => 'TRANSAKSI',
+                'isi_chat'      => 'Produk: ' . $produk->detail_produk . ' Gambar: ' . $produk->foto_produk
+            ];
+            $this->db->insert('tbl_chat', $data);
             $this->insert_model->tambah_transaksi();
-            redirect('admin/transaksi/baru');
+            echo 'Produk: ' . $produk->detail_produk . ' Gambar: ' . $produk->foto_produk;
+        // redirect('admin/transaksi/baru');
         endif;
         if (isset($_POST['batal_transaksi'])) :
             $this->update_model->delete_transaksi();

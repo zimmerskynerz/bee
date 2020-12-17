@@ -239,7 +239,22 @@
             e.preventDefault();
             $('#detail_transaski').modal('show');
             $('#id_konsumen').val($('.chat.active-chat').data('idk'));
-        })
+        });
+
+        $('#transaksiForm').submit(function(e) {
+            e.preventDefault();
+
+            $.ajax({
+                type: "POST",
+                url: "<?= base_url() ?>admin/transaksi/crudtransaksi",
+                data: $(this).serialize(),
+                success: function(data) {
+                    $('#detail_transaski').modal('hide');
+                    $('.chat.active-chat').append('<div class="bubble me">' + data + '</div>');
+                }
+            })
+        });
+
         $('#formChat').submit(function(e) {
             e.preventDefault();
             $.ajax({

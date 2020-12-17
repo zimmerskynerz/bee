@@ -10,8 +10,9 @@
                 </button>
             </div>
             <div class="modal-body">
-                <?php echo form_open_multipart('admin/transaksi/crudtransaksi'); ?>
+                <?php echo form_open_multipart('admin/transaksi/crudtransaksi', ['id' => 'transaksiForm']); ?>
                 <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>" style="display: none">
+                <input type="hidden" name="kirim_transaksi" value="">
                 <div class="form-group">
                     <label>Kategori Barang</label>
                     <div class="input-group">
@@ -40,7 +41,7 @@
                 <button type="button" class="btn btn-outline-primary" data-dismiss="modal">
                     Close
                 </button>
-                <button type="submit" id="kirim_transaksi" name="kirim_transaksi" class="btn btn-primary">Kirim</button>
+                <button type="submit" id="kirim_transaksi" class="btn btn-primary">Kirim</button>
             </div>
             <?php echo form_close(); ?>
         </div>
