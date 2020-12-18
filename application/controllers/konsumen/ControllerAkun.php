@@ -56,6 +56,11 @@ class ControllerAkun extends CI_Controller
             redirect('konsumen/login');
         endif;
     }
+    public function logout()
+    {
+        $this->session->sess_destroy();
+        redirect('konsumen/login');
+    }
 }
         
     /* End of file  ControllerAkun.php */

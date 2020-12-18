@@ -4,7 +4,7 @@ class Insert_model extends CI_Model
 {
     function tambah_konsumen()
     {
-        $config['upload_path']   = './assets/produk';
+        $config['upload_path']   = './assets/konsumen';
         $config['allowed_types'] = 'jpeg|jpg|png|gif';
         $config['encrypt_name']  = true;
         $config['overwrite']     = true;

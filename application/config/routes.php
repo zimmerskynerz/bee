@@ -58,6 +58,7 @@ $route['pemilik/logout']                                        = 'admin/Control
 // Halaman Konsumen
 // Halaman Utama Tanpa Login
 $route['konsumen/login']                                        = 'konsumen/ControllerAkun/login';
+$route['konsumen/logout']                                       = 'konsumen/ControllerAkun/logout';
 $route['konsumen/daftar']                                       = 'konsumen/ControllerAkun/daftar';
 $route['konsumen/cek_login']                                    = 'konsumen/ControllerAkun/cek_login';
 $route['konsumen/proses_daftar']                                = 'konsumen/ControllerAkun/proses_daftar';
