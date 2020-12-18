@@ -226,6 +226,8 @@
                                                                 <a href="javascript:void(0)" class="btn btn-primary d-block mx-auto byr" data-nm="<?= $data[1] ?>" data-hrg="<?= $data[4] ?>" data-jml="<?= $data[3] ?>">Bayar</a>
                                                             </div>
                                                         </div>
+                                                    <?php elseif ($c->type == 'GAMBAR') : ?>
+                                                        <img class="w-100" src="<?= base_url() . 'assets/img/' . $c->isi_chat ?>">
                                                     <?php endif; ?>
                                                 </div>
                                             <?php endforeach; ?>
@@ -235,8 +237,10 @@
                                 <div class="chat-footer chat-active">
                                     <div class="chat-input">
                                         <form class="chat-form" action="javascript:void(0);" id="formChat">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square">
-                                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                                            <svg style="cursor:pointer" id="sendImg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-image">
+                                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                                <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                                                <polyline points="21 15 16 10 5 21"></polyline>
                                             </svg>
                                             <input type="text" name="pesan" class="mail-write-box form-control" placeholder="Message" />
                                         </form>
@@ -273,8 +277,8 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
+            <?php echo form_open_multipart('konsumen/transaksi/crudtransaksi'); ?>
             <div class="modal-body" id="detail_body">
-                <?php echo form_open_multipart('konsumen/transaksi/crudtransaksi'); ?>
                 <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>" style="display: none">
                 <div class="form-group">
                     <label for="">Nama Produk</label>
@@ -308,8 +312,63 @@
         </div>
     </div>
 </div>
+
+<!-- Modal gambar-->
+<div class="modal fade" id="modalImg" tabindex="-1" role="dialog" aria-labelledby="modalImgLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalImgLabel">Kirim gambar</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <?php echo form_open_multipart('konsumen/chat/send_image', ['id' => 'formImg']); ?>
+            <div class="modal-body">
+                <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>">
+                <div class="form-group">
+                    <label for="">Gambar</label>
+                    <input type="file" class="form-control" id="gambar" name="gambar" required>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn" data-dismiss="modal"><i class="flaticon-cancel-12"></i>Batal</button>
+                <button type="submit" class="btn btn-primary">Kirim</button>
+            </div>
+            <?php echo form_close(); ?>
+        </div>
+    </div>
+</div>
+
 <script>
     $(document).ready(function() {
+        $('#sendImg').on('click', function() {
+            $('#modalImg').modal('show');
+        });
+        $('#formImg').submit(function(e) {
+            e.preventDefault();
+            let form = new FormData(document.getElementById('formImg'));
+            $.ajax({
+                url: $(this).attr('action'),
+                type: "POST",
+                data: form,
+                processData: false,
+                contentType: false,
+                success: function(r) {
+                    let data = JSON.parse(r);
+                    $('#modalImg').modal('hide');
+                    $('.chat.active-chat').append('<div class="bubble me"><img class="w-100" src="<?= base_url() ?>assets/img/' + data.img + '"></div>');
+                    document.querySelector('.chat.active-chat').scrollIntoView({
+                        behavior: "smooth",
+                        block: "end",
+                        inline: "nearest"
+                    });
+                },
+                error: function(e) {
+                    console.error(e);
+                }
+            })
+        });
         $('.byr').on('click', function(e) {
             e.preventDefault();
             $('#konfirmasi_detail').modal('show');
@@ -317,7 +376,7 @@
             $('input[name="harga_produk"]').val($(this).data('hrg'));
             $('input[name="jml_barang"]').val($(this).data('jml'));
             $('input[name="total_harga"]').val(parseInt($(this).data('hrg')) * parseInt($(this).data('jml')));
-        })
+        });
         $('#formChat').submit(function(e) {
             e.preventDefault();
             $.ajax({
@@ -327,6 +386,11 @@
                 success: function(data) {
                     $('.chat.active-chat').append('<div class="bubble me">' + $('input[name="pesan"]').val() + '</div>');
                     $('input[name="pesan"]').val('');
+                    document.querySelector('.chat.active-chat').scrollIntoView({
+                        behavior: "smooth",
+                        block: "end",
+                        inline: "nearest"
+                    });
                 }
             })
         })
