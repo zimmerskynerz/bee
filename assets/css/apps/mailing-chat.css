@@ -749,3 +749,7 @@
     }
     .chat-system .chat-box .overlay-video-call.onConnect { background-attachment: local; }
 }
+
+.chat-active ~ .chat-conversation-box .ps__rail-y, .chat-active ~ .chat-conversation-box .ps__rail-x {
+    display:none !important
+}

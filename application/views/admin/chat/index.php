@@ -207,6 +207,8 @@
                                                                         <a href="javascript:void(0)" class="btn btn-primary d-block mx-auto detail_tr">Detail</a>
                                                                     </div>
                                                                 </div>
+                                                            <?php elseif ($c->type == 'GAMBAR') : ?>
+                                                                <img class="w-100" src="<?= base_url() . 'assets/img/' . $c->isi_chat ?>">
                                                             <?php endif; ?>
                                                         </div>
                                                     <?php endif; ?>
@@ -248,6 +250,12 @@
 <?php $this->load->view('admin/chat/transaksi_data') ?>
 <script>
     $(document).ready(function() {
+
+        document.querySelector('.chat.active-chat').scrollIntoView({
+            behavior: "smooth",
+            block: "end",
+            inline: "nearest"
+        });
         $('#tambah_transaksi').on('click', function(e) {
             e.preventDefault();
             $('#detail_transaski').modal('show');
@@ -275,6 +283,11 @@
                     html += '</div>';
                     html += '</div>';
                     $('.chat.active-chat').append('<div class="bubble me">' + html + '</div>');
+                    document.querySelector('.chat.active-chat').scrollIntoView({
+                        behavior: "smooth",
+                        block: "end",
+                        inline: "nearest"
+                    });
                 }
             })
         });
