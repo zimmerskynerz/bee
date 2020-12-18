@@ -36,10 +36,10 @@
                 </a>
                 <ul class="collapse submenu list-unstyled" id="uiKit" data-parent="#topAccordion">
                     <li>
-                        <a href="<?= base_url('admin/akun/laporan') ?>"> Daftar </a>
+                        <a href="<?= base_url('konsumen/daftar') ?>"> Daftar </a>
                     </li>
                     <li>
-                        <a href="<?= base_url('admin/logout') ?>"> Login </a>
+                        <a href="<?= base_url('konsumen/login') ?>"> Login </a>
                     </li>
                 </ul>
             </li>
