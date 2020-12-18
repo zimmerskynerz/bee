@@ -251,11 +251,6 @@
 <script>
     $(document).ready(function() {
 
-        document.querySelector('.chat.active-chat').scrollIntoView({
-            behavior: "smooth",
-            block: "end",
-            inline: "nearest"
-        });
         $('#tambah_transaksi').on('click', function(e) {
             e.preventDefault();
             $('#detail_transaski').modal('show');
@@ -283,11 +278,6 @@
                     html += '</div>';
                     html += '</div>';
                     $('.chat.active-chat').append('<div class="bubble me">' + html + '</div>');
-                    document.querySelector('.chat.active-chat').scrollIntoView({
-                        behavior: "smooth",
-                        block: "end",
-                        inline: "nearest"
-                    });
                 }
             })
         });
