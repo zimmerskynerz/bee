@@ -25,7 +25,7 @@
                                             </div>
                                             <div class="card-body">
                                                 <p><?= $Data_produk->detail_produk ?></p>
-                                                <a href="<?= base_url('konsumen/login') ?>" class="btn btn-block btn-primary">Pesan</a>
+                                                <a href="<?= base_url('konsumen/chat/inbox') ?>" class="btn btn-block btn-primary">Pesan</a>
                                             </div>
                                         </div>
                                     </div>

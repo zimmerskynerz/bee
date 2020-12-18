@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 16 Des 2020 pada 02.56
+-- Waktu pembuatan: 17 Des 2020 pada 15.16
 -- Versi server: 10.4.14-MariaDB
 -- Versi PHP: 7.3.22
 
@@ -93,7 +93,11 @@ INSERT INTO `tbl_chat` (`id_chat`, `id_konsumen`, `id_admin`, `sender`, `type`, 
 (23, 2, 1, 'K', 'TEXT', 'fd'),
 (24, 2, 2, 'A', 'TEXT', 'daa'),
 (25, 2, 2, 'A', 'TEXT', 'apakabar'),
-(26, 2, 1, 'K', 'TEXT', 'apasaja');
+(26, 2, 1, 'K', 'TEXT', 'apasaja'),
+(27, 2, 2, 'A', 'TRANSAKSI', 'Produk: Apa saja Gambar: 358bede1ce0d9804da041363e363fd18.png'),
+(28, 2, 3, 'A', 'TEXT', 'mohon maaf habis produk'),
+(29, 2, 1, 'K', 'TEXT', 'harga jadi 20000'),
+(30, 2, 3, 'A', 'TRANSAKSI', 'Produk: Apa saja Gambar: 358bede1ce0d9804da041363e363fd18.png');
 
 -- --------------------------------------------------------
 
@@ -142,7 +146,7 @@ CREATE TABLE `tbl_produk` (
 --
 
 INSERT INTO `tbl_produk` (`id_produk`, `nm_produk`, `foto_produk`, `detail_produk`, `harga_produk`, `status_produk`) VALUES
-(1, 'Logo', '358bede1ce0d9804da041363e363fd18.png', 'Apa saja', 3000000, 'ADA');
+(1, 'Logo', '358bede1ce0d9804da041363e363fd18.png', 'Apa saja', 3000000, 'HAPUS');
 
 -- --------------------------------------------------------
 
@@ -171,7 +175,9 @@ CREATE TABLE `tbl_traksaksi` (
 INSERT INTO `tbl_traksaksi` (`id_transaksi`, `tgl_transaksi`, `tgl_bayar`, `tgl_selesai`, `id_konsumen`, `id_produk`, `foto_bayar`, `status_transaksi`, `ket_lain`, `jml_barang`, `total_harga`) VALUES
 (2, '2020-12-10', '2020-12-10', '2020-12-11', 1, 1, '1527432881_27-05-2018_photo6077615961109801020.jpg', 'SELESAI', 'BARANG ANDA SEDANG DIKIRIM. NO RESI : fds322323', 2, 6000000),
 (3, '2020-12-11', '2020-12-15', '2020-12-15', 2, 1, 'f3ea45612baf2f7b780c0516058c051d.png', 'SELESAI', 'BARANG ANDA SEDANG DIKIRIM. NO RESI : 32323232', 12, 1),
-(4, '2020-12-16', NULL, NULL, 2, 1, NULL, 'KONFIRMASI', 'NEGO', 3, 23000);
+(4, '2020-12-16', NULL, NULL, 2, 1, NULL, 'KONFIRMASI', 'NEGO', 3, 23000),
+(5, '2020-12-17', NULL, NULL, 2, 1, NULL, 'KONFIRMASI', 'NEGO', 2, 20000),
+(6, '2020-12-17', '2020-12-17', NULL, 2, 1, '3c049c81a0480f458ad39d4825d0670c.png', 'BAYAR', 'NEGO', 23, 20000);
 
 --
 -- Indexes for dumped tables
@@ -227,7 +233,7 @@ ALTER TABLE `tbl_admin`
 -- AUTO_INCREMENT untuk tabel `tbl_chat`
 --
 ALTER TABLE `tbl_chat`
-  MODIFY `id_chat` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id_chat` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_konsumen`
@@ -245,7 +251,7 @@ ALTER TABLE `tbl_produk`
 -- AUTO_INCREMENT untuk tabel `tbl_traksaksi`
 --
 ALTER TABLE `tbl_traksaksi`
-  MODIFY `id_transaksi` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_transaksi` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
