@@ -342,6 +342,11 @@
 
 <script>
     $(document).ready(function() {
+        document.querySelector('.chat.active-chat').scrollIntoView({
+            behavior: "smooth",
+            block: "end",
+            inline: "nearest"
+        });
         $('#sendImg').on('click', function() {
             $('#modalImg').modal('show');
         });
