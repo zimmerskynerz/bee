@@ -211,7 +211,22 @@
                                             </div>
                                             <?php foreach ($chat as $c) : ?>
                                                 <div class="bubble <?= ($c->sender == 'K') ? 'me' : 'you' ?>">
-                                                    <?= $c->isi_chat ?>
+                                                    <?php if ($c->type == 'TEXT') : ?>
+                                                        <?= $c->isi_chat ?>
+                                                    <?php elseif ($c->type == 'TRANSAKSI') :
+                                                        $data = explode('|', $c->isi_chat);
+                                                    ?>
+                                                        <div class="card component-card_2">
+                                                            <a href="<?= base_url() ?>konsumen/transaksi/baru" target="_blank">
+                                                                <img src="<?= base_url() . 'assets/produk/' . $data[0] ?>" class="card-img-top" alt="widget-card-2">
+                                                            </a>
+                                                            <div class="card-body">
+                                                                <h5 class="card-title"><?= $data[1] ?></h5>
+                                                                <p class="card-text"><?= $data[2] ?></p>
+                                                                <a href="javascript:void(0)" class="btn btn-primary d-block mx-auto byr" data-nm="<?= $data[1] ?>" data-hrg="<?= $data[4] ?>" data-jml="<?= $data[3] ?>">Bayar</a>
+                                                            </div>
+                                                        </div>
+                                                    <?php endif; ?>
                                                 </div>
                                             <?php endforeach; ?>
                                         </div>
@@ -247,8 +262,62 @@
         </div>
     </div>
 </div>
+<div class="modal fade" id="konfirmasi_detail" tabindex="-1" role="dialog" aria-labelledby="konfirmasi_detailTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="konfirmasi_detailTitle">
+                    Detail Transaksi Baru!
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="detail_body">
+                <?php echo form_open_multipart('konsumen/transaksi/crudtransaksi'); ?>
+                <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>" style="display: none">
+                <div class="form-group">
+                    <label for="">Nama Produk</label>
+                    <input type="text" class="form-control" id="nm_produk" name="nm_produk" readonly placeholder="Nama Produk" required>
+                    <input type="text" class="form-control" hidden id="id_transaksi" name="id_transaksi" required>
+                </div>
+                <div class="form-group">
+                    <label for="">Harga Produk</label>
+                    <input type="number" class="form-control" readonly id="harga_produk" name="harga_produk" placeholder="Harga Produk" required>
+                </div>
+                <div class="form-group">
+                    <label for="">Jumlah Beli</label>
+                    <input type="number" class="form-control" id="jml_barang" name="jml_barang" placeholder="Detail Produk" readonly required>
+                </div>
+                <div class="form-group">
+                    <label for="">Total Harga</label>
+                    <input type="text" class="form-control" id="total_harga" readonly name="total_harga" placeholder="Detail Produk" required>
+                </div>
+                <div class="form-group">
+                    <label for="">Bukti Transfer</label>
+                    <input type="file" class="form-control" id="foto_bayar" name="foto_bayar" placeholder="Detail Produk" required>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-primary" data-dismiss="modal">
+                    Close
+                </button>
+                <button type="submit" id="kirim_bukti" name="kirim_bukti" class="btn btn-success">Kirim Bukti</button>
+            </div>
+            <?php echo form_close(); ?>
+        </div>
+    </div>
+</div>
 <script>
     $(document).ready(function() {
+        $('.byr').on('click', function(e) {
+            e.preventDefault();
+            $('#konfirmasi_detail').modal('show');
+            $('input[name="nm_produk"]').val($(this).data('nm'));
+            $('input[name="harga_produk"]').val($(this).data('hrg'));
+            $('input[name="jml_barang"]').val($(this).data('jml'));
+            $('input[name="total_harga"]').val(parseInt($(this).data('hrg')) * parseInt($(this).data('jml')));
+        })
         $('#formChat').submit(function(e) {
             e.preventDefault();
             $.ajax({

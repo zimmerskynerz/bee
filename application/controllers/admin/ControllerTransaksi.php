@@ -91,16 +91,22 @@ class ControllerTransaksi extends CI_Controller
                 ->where('id_produk', $this->input->post('id_produk'))
                 ->get('tbl_produk')
                 ->row();
+            $this->insert_model->tambah_transaksi();
             $data = [
                 'id_konsumen'   => $this->input->post('id_konsumen'),
                 'id_admin'      => $this->session->userdata('id_admin'),
                 'sender'        => 'A',
                 'type'          => 'TRANSAKSI',
-                'isi_chat'      => 'Produk: ' . $produk->detail_produk . ' Gambar: ' . $produk->foto_produk
+                'isi_chat'      => $produk->foto_produk . '|' . $produk->nm_produk . '|' . $produk->detail_produk . '|' . $this->input->post('jml_beli') . '|' . $this->input->post('harga_nego')
             ];
             $this->db->insert('tbl_chat', $data);
-            $this->insert_model->tambah_transaksi();
-            echo 'Produk: ' . $produk->detail_produk . ' Gambar: ' . $produk->foto_produk;
+            echo json_encode([
+                'img'       => $produk->foto_produk,
+                'title'     => $produk->nm_produk,
+                'detail'    => $produk->detail_produk,
+                'jml'       => $this->input->post('jml_beli'),
+                'hrg'       => $this->input->post('harga_nego')
+            ]);
         // redirect('admin/transaksi/baru');
         endif;
         if (isset($_POST['batal_transaksi'])) :

@@ -194,7 +194,20 @@
                                                 <?php foreach ($chat as $c) : ?>
                                                     <?php if ($p->id_konsumen == $c->id_konsumen) : ?>
                                                         <div class="bubble <?= ($c->sender == 'A') ? 'me' : 'you' ?>">
-                                                            <?= $c->isi_chat ?>
+                                                            <?php if ($c->type == 'TEXT') : ?>
+                                                                <?= $c->isi_chat ?>
+                                                            <?php elseif ($c->type == 'TRANSAKSI') : ?>
+                                                                <div class="card component-card_2">
+                                                                    <a href="<?= base_url() ?>admin/transaksi/baru" target="_blank">
+                                                                        <img src="<?= base_url() . 'assets/produk/' . explode('|', $c->isi_chat)[0] ?>" class="card-img-top" alt="widget-card-2">
+                                                                    </a>
+                                                                    <div class="card-body">
+                                                                        <h5 class="card-title"><?= explode('|', $c->isi_chat)[1] ?></h5>
+                                                                        <p class="card-text"><?= explode('|', $c->isi_chat)[2] ?></p>
+                                                                        <a href="javascript:void(0)" class="btn btn-primary d-block mx-auto detail_tr">Detail</a>
+                                                                    </div>
+                                                                </div>
+                                                            <?php endif; ?>
                                                         </div>
                                                     <?php endif; ?>
                                                 <?php endforeach; ?>
@@ -248,9 +261,20 @@
                 type: "POST",
                 url: "<?= base_url() ?>admin/transaksi/crudtransaksi",
                 data: $(this).serialize(),
-                success: function(data) {
+                success: function(r) {
+                    let data = JSON.parse(r);
                     $('#detail_transaski').modal('hide');
-                    $('.chat.active-chat').append('<div class="bubble me">' + data + '</div>');
+                    let html = '<div class="card component-card_2">';
+                    html += '<a href="<?= base_url() ?> /admin/transaksi/baru" target="_blank">';
+                    html += '<img src="<?= base_url() . 'assets/produk/' ?>' + data.img + '" class="card-img-top">'
+                    html += '</a>';
+                    html += '<div class="card-body">';
+                    html += '<h5 class="card-title">' + data.title + '</h5>';
+                    html += '<p class="card-text">' + data.detail + '</p>';
+                    html += '<a href="javascript:void(0)" class="btn btn-primary d-block mx-auto detail_tr">Detail</a>';
+                    html += '</div>';
+                    html += '</div>';
+                    $('.chat.active-chat').append('<div class="bubble me">' + html + '</div>');
                 }
             })
         });
