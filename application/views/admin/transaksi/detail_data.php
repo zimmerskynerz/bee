@@ -14,7 +14,7 @@
                 <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>" style="display: none">
                 <div class="form-group">
                     <label for="">Nama Produk</label>
-                    <input type="text" class="form-control" id="kode_transaksi" name="kode_transaksi" readonly placeholder="Nama Produk" required>
+                    <input type="text" class="form-control" id="nm_produk" name="nm_produk" readonly placeholder="Nama Produk" required>
                     <input type="text" class="form-control" hidden id="id_transaksi" name="id_transaksi" placeholder="Nama Produk" required>
                 </div>
                 <div class="form-group">
@@ -47,6 +47,7 @@
         var id_transaksi = $(this).data('id_transaksi');
         var kode_transaksi = $(this).data('kode_transaksi');
         var id_produk = $(this).data('id_produk');
+        var nm_produk = $(this).data('nm_produk');
         var jml_barang = $(this).data('jml_barang');
         var total_harga = $(this).data('total_harga');
         var harga_produk = $(this).data('harga_produk');
@@ -54,6 +55,7 @@
         $(".modal-body#detail_body #kode_transaksi").val(kode_transaksi);
         $(".modal-body#detail_body #id_produk").val(id_produk);
         $(".modal-body#detail_body #jml_barang").val(jml_barang);
+        $(".modal-body#detail_body #nm_produk").val(nm_produk);
         $(".modal-body#detail_body #total_harga").val(total_harga);
         $(".modal-body#detail_body #harga_produk").val(harga_produk);
     })

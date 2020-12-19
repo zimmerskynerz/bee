@@ -43,6 +43,7 @@
                                                 data-kode_transaksi="<?= date('Ymd', strtotime($Data_konfirmasi->tgl_transaksi)) ?><?= $Data_konfirmasi->id_transaksi ?>" 
                                                 data-id_produk="<?= $Data_konfirmasi->id_produk ?>" 
                                                 data-jml_barang="<?= $Data_konfirmasi->jml_barang ?>" 
+                                                data-nm_produk="<?= $Data_konfirmasi->nm_produk ?>" 
                                                 data-total_harga="<?= $Data_konfirmasi->total_harga ?>"
                                                 data-harga_produk="<?= $Data_konfirmasi->harga_produk ?>">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit">
